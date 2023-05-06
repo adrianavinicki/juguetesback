@@ -8,7 +8,8 @@ module.exports = (sequelize) => {
     {
       //ID : Que lo defina el sistema
       id_product: {
-        type: DataTypes.UUIDV4,
+        //type: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
       },
@@ -36,7 +37,7 @@ module.exports = (sequelize) => {
         // FALTA REDEFINIR EL DEFAULT VALUE DE JUGUETES ESTA HOTEL
         type: DataTypes.ARRAY(DataTypes.STRING),
         defaultValue: [
-          "https://img.freepik.com/vector-gratis/edificio-hotel-flat_23-2148162501.jpg?w=2000",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxik8f-0VdGyTPqLlOxXhJOHPms35wKycNT37kSN7_e-d7Bt3bOYslLO_BbD0ySMLvGsg&usqp=CAU",
         ],
       },
       stars: {
