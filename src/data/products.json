@@ -1,0 +1,170 @@
+[
+    {
+      "name": "Peluche de osito",
+      "brand": "Juguetelandia",
+      "category": "Peluches",
+      "minimun_age": 3,
+      "description": "Un adorable peluche de osito marrón con una bufanda roja.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdxjgX_Wu5dfBDX5m9YGH12YZ4LisG8q3pEg&usqp=CAU"
+    },
+    {
+      "name": "Set de lego clásico",
+      "brand": "LEGO",
+      "category": "Bloques de construcción",
+      "minimun_age": 5,
+      "description": "Un set de bloques de construcción LEGO clásicos para construir diferentes estructuras.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsbp4765aENZ5WnZRjDlSgigsy3_8_Q8QcCVr-omKgWSMtsnZlEps8cetju0tiXN9ysNk&usqp=CAU"
+    },
+    {
+      "name": "Muñeca Barbie",
+      "brand": "Mattel",
+      "category": "Muñecas",
+      "minimun_age": 4,
+      "description": "Una muñeca Barbie con ropa elegante y accesorios.",
+      "image": "https://m.media-amazon.com/images/I/61ZvnbbbfdL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "name": "Camión de bomberos de juguete",
+      "brand": "ToysRUs",
+      "category": "Vehículos",
+      "minimun_age": 3,
+      "description": "Un camión de bomberos de juguete con luces y sonidos realistas.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAdTKo6TOfY51by5TGHCj7pQhlq7kpguoPHQ&usqp=CAU"
+    },
+    {
+      "name": "Pelota de fútbol",
+      "brand": "SportsWorld",
+      "category": "Deportes",
+      "minimun_age": 6,
+      "description": "Una pelota de fútbol de tamaño estándar con diseño colorido.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToLtZNuCiWSCZQKw3JwAHP1gJJYRnvkZZbwwt5k2Xx5H-uAxsTjsY-EG-i7-AMaQXQZ9c&usqp=CAU"
+    },
+    {
+      "name": "Puzzle de animales",
+      "brand": "Toyland",
+      "category": "Puzzles",
+      "minimun_age": 4,
+      "description": "Un puzzle de 100 piezas con ilustraciones de animales.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4kx8UICMPlClIVLqpbLkQ42kuzHvXX_K7lrR-FYeWnjnF8jukCJIPdHMEmREv-4_J408&usqp=CAU"
+    },
+    {
+      "name": "Kit de experimentos científicos",
+      "brand": "ScienceKids",
+      "category": "Ciencia",
+      "minimun_age": 8,
+      "description": "Un kit de experimentos científicos para aprender y divertirse.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQukLij0hFUkDdh7kL6qSbAg3LZDU6FhurZY4zMOrKtped6ngL2DP2atpgps-J5wUH14nE&usqp=CAU"
+    },
+    {
+      "name": "Cocina de juguete",
+      "brand": "Playtime",
+      "category": "Imitación",
+      "minimun_age": 2,
+      "description": "Una cocina de juguete con utensilios y accesorios para jugar a ser chef.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgutQ9hONo_tlf35fKVWekPtpe6So7_ZQkAQ&usqp=CAU"
+    },
+    {
+      "name": "Lego City - Estación de Policía",
+      "brand": "LEGO",
+      "category": "Bloques de construcción",
+      "minimun_age": "5 años",
+      "description": "Construye una estación de policía con los bloques de construcción LEGO, incluye vehículos y figuras de policías.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR966ukW5XMpLHIumMLi4nm7EY4hDBGsUoyweB7nrm-Ekdt-Yu4qd24RRGjcayOoWI9t8M&usqp=CAU"
+    },
+    {
+      "name": "Muñeca bebé llorona",
+      "brand": "Berjuan",
+      "category": "Muñecas",
+      "minimun_age": "3 años",
+      "description": "Muñeca de bebé que llora lágrimas de verdad y emite sonidos de llanto al moverla o inclinarla.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2V7bPq6p1pc6rF60QLgDijfnxQ7miOl-dbA&usqp=CAU"
+    },
+    {
+      "name": "Pistola Nerf Elite Disruptor",
+      "brand": "Nerf",
+      "category": "Juegos de exterior",
+      "minimun_age": "8 años",
+      "description": "Pistola de juguete que dispara dardos de espuma hasta 27 metros de distancia, incluye 6 dardos.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBb2SxlbTpsJu8mwlsaXgSQ3G67Q0Xvkge3SKjS1ls1z60U7P_eZYlrjOuGImbs4H4SA&usqp=CAU"
+    },
+    {
+      "name": "Juego de mesa Monopoly",
+      "brand": "Hasbro",
+      "category": "Juegos de mesa",
+      "minimun_age": "8 años",
+      "description": "Juego de mesa clásico de negociación y compraventa de propiedades, incluye fichas y dinero en efectivo.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjefDsnxwZ9Qo0SrJjuqgg8QoluCHClGsQbg&usqp=CAU"
+    },
+    {
+      "name": "Robot educativo mBot",
+      "brand": "Makeblock",
+      "category": "Robótica",
+      "minimun_age": "8 años",
+      "description": "Robot educativo para niños que pueden programar y controlar con una tableta o smartphone, incluye sensores y módulos.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmxJb6oAkmTgwLvcLNYd4PMCTn7uhFCDCXLA&usqp=CAU"
+    },
+    {
+      "name": "Set de peluquería de juguete",
+      "brand": "Barbie",
+      "category": "Juegos de imitación",
+      "minimun_age": "3 años",
+      "description": "Set de peluquería de juguete con secador, cepillos y accesorios de belleza para que los niños jueguen a ser peluqueros.",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_703800-MLA54247359908_032023-V.jpg"
+    },
+    {
+      "name": "Set de construcción de robots",
+      "brand": "Meccano",
+      "category": "Robótica",
+      "minimun_age": "10 años",
+      "description": "Set de construcción de robots de juguete con piezas y herramientas para construir robots móviles y programables.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhwSQ9b8W3pOuVgkOVjvL_ZSLwqYQ98Bjohw&usqp=CAU"
+    },
+    {
+      "name": "Lego Classic Creative Bricks",
+      "brand": "LEGO",
+      "category": "Bloques de construcción",
+      "minimun_age": "4 años",
+      "description": "Un set de bloques de construcción clásicos de LEGO que fomenta la creatividad y la imaginación.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXQLoa_XoNmD4QSd2Kmcl1GiZvmc3gg2hlTg&usqp=CAU"
+    },
+    {
+      "name": "Barbie Dreamhouse",
+      "brand": "Mattel",
+      "category": "Muñecas",
+      "minimun_age": "3 años",
+      "description": "La casa de ensueño de Barbie con múltiples habitaciones, accesorios y funciones interactivas.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRjKJsxEhdYtYWhOEtNi-cYaW8N99teDlBg&usqp=CAU"
+    },
+    {
+      "name": "Coche de control remoto",
+      "brand": "ToyZone",
+      "category": "Vehículos",
+      "minimun_age": "6 años",
+      "description": "Un coche de control remoto de alta velocidad con capacidad para realizar acrobacias y giros de 360 grados.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKDrpKZV6_P8jdgZjOo9XKWtT0ZXDjJxJaQltROFXyK6ztfDvcjgCTOZw-RJdA-FdrM0s&usqp=CAU"
+    },
+    {
+      "name": "Puzzle de animales de la selva",
+      "brand": "Puzzlemaster",
+      "category": "Puzzles",
+      "minimun_age": "5 años",
+      "description": "Un puzzle de 100 piezas con temática de animales de la selva y colores vibrantes.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5jpLt0GenWLIpepse1tjxM_atxc3miftIrx4uOI8_bNoF42QG9C66LI6ckZyhP6K3Hik&usqp=CAU"
+    },
+    {
+      "name": "Peluche interactivo",
+      "brand": "Juguetitos",
+      "category": "Peluches",
+      "minimun_age": "2 años",
+      "description": "Un peluche suave y adorable que emite sonidos y responde a los abrazos y caricias.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-J0in6rk2JZGfsAfqeCaieQoLajlEksZo5w&usqp=CAU"
+    },
+    {
+      "name": "Peluche de leon",
+      "brand": "Juguetelandia",
+      "category": "Peluches",
+      "minimun_age": 3,
+      "description": "Un adorable peluche de leon.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr41Sj8y6e5JEzLS2rkJigBswC2p2IubFeOQ&usqp=CAU"
+    }
+]
