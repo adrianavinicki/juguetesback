@@ -4,13 +4,8 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB } = process.env;
 
-// la linea 8 se descomenta y la 10 se comentar para hacer test en la local DB
-// const sequelize = new Sequelize(
-// `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB}`,
-// {
-// la linea 10 se debe dejar en el main para que el railway use la DB de railway (const sequelize = new Sequelize(`postgresql://postgres:2oNnBI3ZZ2BjWiAMBuhc@containers-us-west-182.railway.app:7595/railway`, {)
 const sequelize = new Sequelize(
-  `postgresql://postgres:2oNnBI3ZZ2BjWiAMBuhc@containers-us-west-182.railway.app:7595/railway`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB}`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -42,26 +37,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const {
-  User,
-  User_travel,
-  About_us,
-  Amenities,
-  Bills,
-  Hotel,
-  Partners,
-  Room,
-  Services,
-  Cat_hotel_info,
-  Cat_room_inventory,
-  Cat_room_type,
-  Reviews,
-} = sequelize.models;
+const { Product } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 //relacion entre User y User_travel
-User.belongsToMany(User_travel, { through: "travel_user" });
+/*User.belongsToMany(User_travel, { through: "travel_user" });
 User_travel.belongsToMany(User, { through: "travel_user" });
 //relacion entre Bills y User_travel
 Bills.belongsToMany(User_travel, { through: "bills_travels" });
@@ -103,7 +84,7 @@ Reviews.belongsTo(Hotel, { foreignKey: "hotelId" });
 User.hasMany(Reviews, { foreignKey: "idUser" });
 
 // En el modelo Hotel
-Hotel.hasMany(Reviews, { foreignKey: "hotelId" });
+Hotel.hasMany(Reviews, { foreignKey: "hotelId" });*/
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
