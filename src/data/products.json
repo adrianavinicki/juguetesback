@@ -166,5 +166,157 @@
       "minimun_age": 3,
       "description": "Un adorable peluche de leon.",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr41Sj8y6e5JEzLS2rkJigBswC2p2IubFeOQ&usqp=CAU"
-    }
+    },
+    {
+    "name": "Barbie Dreamhouse",
+    "brand": "Barbie",
+    "category": "Casa de muñecas",
+    "minimum_edge": "3 años",
+    "description": "La Casa de Ensueño de Barbie es una casa de muñecas de 3 pisos con siete habitaciones, un ascensor funcional y más de 70 accesorios para infinitas posibilidades de juego.",
+    "image": "https://https://m.media-amazon.com/images/I/81owpGnSI-L.jpg"
+   },
+  {
+    "name": "LEGO Star Wars Halcón Milenario",
+    "brand": "LEGO",
+    "category": "Bloques de construcción",
+    "minimum_edge": "9 años",
+    "description": "Construye el icónico Halcón Milenario de Star Wars con más de 1300 piezas y recrea escenas de las películas con las mini-figuras de Han Solo, Chewbacca y otros personajes.",
+    "image": "https://i.blogs.es/f83a2b/millennium-falcon-lego-7/840_560.jpg"
+  },
+  {
+    "name": "Nerf N-Strike Elite Disruptor Blaster",
+    "brand": "Nerf",
+    "category": "Pistola",
+    "minimum_edge": "8 años",
+    "description": "La pistola Nerf N-Strike Elite Disruptor puede disparar seis dardos seguidos a una distancia de hasta 27 metros. Tiene un tambor giratorio que permite recargar rápidamente durante las batallas intensas.",
+    "image": "https://i.ytimg.com/vi/oPGv5t_FbWA/maxresdefault.jpg"
+  },
+  {
+    "name": "Hot Wheels Pista de Choques Criss Cross",
+    "brand": "Hot Wheels",
+    "category": "Pista de carreras",
+    "minimum_edge": "5 años",
+    "description": "La Pista de Choques Criss Cross de Hot Wheels es una pista de carreras de alta velocidad con múltiples zonas de choque y cuatro lanzadores para que hasta cuatro jugadores compitan al mismo tiempo.",
+    "image": "https://m.media-amazon.com/images/I/71291zjlclL.jpg"
+  },
+  {
+    "name": "Play-Doh Cocina del Chef",
+    "brand": "Play-Doh",
+    "category": "Arte y manualidades",
+    "minimum_edge": "3 años",
+    "description": "El set Play-Doh Cocina del Chef permite a los niños crear y decorar sus propias creaciones de comida",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_806194-MCO32633177538_102019-O.jpg"
+  },
+  {
+    "name": "Barbie Fashionista Muñeca con Silla de Ruedas",
+    "brand": "Mattel",
+    "category": "Muñeca",
+    "minimum_edge": "3 años",
+    "description": "La muñeca Barbie Fashionista con silla de ruedas es una muñeca inclusiva que viene con una silla de ruedas que se mueve de verdad. La muñeca también tiene una prótesis en la pierna para representar a personas con discapacidades físicas.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_754681-MCO47370126094_092021-O.jpg"
+  },
+  {
+    "name": "Nerf Ultra One Blaster",
+    "brand": "Nerf",
+    "category": "Pistola",
+    "minimum_edge": "8 años",
+    "description": "La pistola Nerf Ultra One Blaster dispara dardos ultralargos a una distancia de hasta 36 metros. Viene con un tambor grande de 25 dardos para que los jugadores puedan mantener la acción en marcha.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_948211-MCO47037555465_082021-O.jpg"
+  },
+  {
+    "name": "Crayola Inspiration Art Case",
+    "brand": "Crayola",
+    "category": "Arte y manualidades",
+    "minimum_edge": "5 años",
+    "description": "El set de arte Crayola Inspiration viene con 140 piezas de arte, incluyendo crayones, marcadores, lápices de colores y papel. Todo viene en una caja de transporte resistente para llevarlo a cualquier lugar.",
+    "image": "https://m.media-amazon.com/images/I/91LtElVE2dL.jpg"
+  },
+  {
+    "name": "Jenga Classic Juego de Mesa",
+    "brand": "Hasbro",
+    "category": "Juego de mesa",
+    "minimum_edge": "6 años",
+    "description": "El juego de mesa Jenga Classic es un juego de habilidad y equilibrio en el que los jugadores deben quitar y apilar bloques de madera sin que la torre se derrumbe.",
+    "image": "https://falabella.scene7.com/is/image/FalabellaCO/1937942_3?wid=800&hei=800&qlt=70"
+  },
+  {
+    "name": "Hot Wheels Pista Torbellino",
+    "brand": "Hot Wheels",
+    "category": "Pista de carreras",
+    "minimum_edge": "5 años",
+    "description": "La Pista Torbellino de Hot Wheels es un Emocionante juego de guías espontáneo!, Enfréntese cara a cara en tres intersecciones zonas de choque., Mira como los coches de la pista, maniobra restringida faltantes o chocar entre sí, Dos lanzadores para ambiente competencia se conecta a otros conjuntos de Hot Wheels Track (se vende por separado), Incluye un vehículo Hot Wheels",
+    "image": "https://m.media-amazon.com/images/I/81UmTje59DL._AC_SL1500_.jpg"
+  },
+  {
+     "name": "Melissa & Doug Wooden Building Blocks Set",
+     "brand": "Melissa & Doug",
+     "category": "Construction toys",
+     "minimum_edge": "3+",
+     "description": "Este juego incluye 100 bloques de madera maciza en cuatro colores diferentes y nueve formas diferentes. Los bloques vienen en una resistente caja de almacenamiento de madera con una tapa deslizante que también sirve como superficie de construcción.",
+     "image": "https://i5.walmartimages.ca/images/Thumbnails/336/389/6000203336389.jpg"
+   },
+   {
+     "name": "Fisher-Price Think & Learn Code-a-Pillar",
+     "brand": "Fisher-Price",
+     "category": "Electronic toys",
+     "minimum_edge": "3+",
+     "description": "Este juguete interactivo enseña habilidades de codificación a través de una serie de segmentos conectados que se pueden reorganizar para hacer que Code-a-Pillar se mueva de diferentes maneras. Incluye un segmento de sonido y tres segmentos rectos, y los segmentos adicionales se pueden comprar por separado.",
+     "image":"https://m.media-amazon.com/images/I/8175bmbrKNL.jpg"
+   },
+   {
+      "name": "Hot Wheels Track Builder System",
+      "brand": "Hot Wheels",
+      "category": "Vehicle Toys",
+      "minimum_edge": "6+",
+      "description": "El sistema Hot Wheels Track Builder le permite diseñar y construir sus propias pistas Hot Wheels personalizadas! Con una variedad de piezas de pista y conectores, puede crear bucles, saltos y acrobacias para desafiar a sus autos Hot Wheels.",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_639612-MCO43818539402_102020-O.jpg"
+    },
+    {
+      "name": "Fisher-Price Little People Caring for Animals Farm",
+      "brand": "Fisher-Price",
+      "category": "Playsets",
+      "minimum_edge": "1-5",
+      "description": "Little People Caring for Animals Farm de Fisher-Price es un juego divertido e interactivo para niños pequeños. ¡Con sus figuras de animales de granja, granero y tractor, los niños pueden aprender sobre el cuidado de los animales y la agricultura mientras juegan!",
+      "image": "https://media.kohlsimg.com/is/image/kohls/5831685?wid=600&hei=600&op_sharpen=1"
+    },
+    {
+      "name": "Play-Doh Modeling Compound 10-Pack Case of Colors",
+      "brand": "Play-Doh",
+      "category": "Art and Craft Toys",
+      "minimum_edge": "2 years",
+      "description": "Un juego de masa para modelar Play-Doh en una variedad de colores, perfecto para esculpir y moldear.",
+      "image": "https://m.media-amazon.com/images/I/51pu4wj05wL._AC_.jpg"
+    },
+    {
+      "name": "Melissa & Doug Deluxe Wooden Railway Train Set",
+      "brand": "Melissa & Doug",
+      "category": "Vehicle Playsets",
+      "minimum_edge": "3 years",
+      "description": "Un juego de trenes de madera que permite a los niños crear sus propias vías de tren y tener un sinfín de juegos imaginativos.",
+      "image": "https://m.media-amazon.com/images/I/71CWlK5TaLL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+    "name": "Hot Wheels Basic Car 50-Pack",
+    "brand": "Hot Wheels",
+    "category": "Die-Cast Vehicles",
+    "minimum_edge": "3 years",
+    "description": "Un juego de 50 autos Hot Wheels en varios diseños y colores para horas de juego imaginativo y colección.",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_855796-MCO47784765179_102021-O.jpg"
+    },
+    {
+    "name": "Melissa & Doug Wooden Scoop and Serve Ice Cream Counter",
+    "brand": "Melissa & Doug",
+    "category": "Kitchen Playsets",
+    "minimum_edge": "3 years",
+    "description": "Un juego de mostrador de helado de madera con bolas de helado, coberturas, conos y dinero ficticio para juegos imaginativos.",
+    "image": "https://m.media-amazon.com/images/I/71o1dhAdiOL._AC_UF894,1000_QL80_.jpg"
+  },
+  {
+    "name": "VTech Kidizoom Smartwatch DX2",
+    "brand": "VTech",
+    "category": "Electronic Toys",
+    "minimum_edge": "4 years",
+    "description": "Un reloj inteligente para niños con juegos, cámara y carátulas personalizables para juegos y aprendizaje interactivos.",
+    "image": "https://image.smythstoys.com/original/desktop/167082.jpg"
+  }  
 ]
