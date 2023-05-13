@@ -6,9 +6,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "product",
     {
-      //ID : Que lo defina el sistema
       id_product: {
-        //type: DataTypes.UUIDV4,
         type: DataTypes.INTEGER,
         autoincrement: true,
         allowNull: false,
