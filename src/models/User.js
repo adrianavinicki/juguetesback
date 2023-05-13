@@ -4,54 +4,56 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "product",
+    "user",
     {
-      //ID : Que lo defina el sistema
-      id_product: {
-        //type: DataTypes.UUIDV4,
+      user_id: {
         type: DataTypes.INTEGER,
         autoincrement: true,
         allowNull: false,
         primaryKey: true,
       },
-      name: {
+      first_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      brand: {
+      last_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      category: {
+      gender: {
+        type: DataTypes.ENUM("F", "M", "X"),
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true, // para que valide que no haya correos repetidos
+        validate: {
+          isEmail: true, // para que valide que sea formato correo
+        },
+      },
+      delivery_address: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      minimun_age: {
-        type: DataTypes.INTEGER,
+      mobile: {
+        type: DataTypes.STRING,
+      },
+      role_id: {
+        type: DataTypes.ENUM("Administrador", "Cliente"),
         allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      image: {
-        // FALTA REDEFINIR EL DEFAULT VALUE DE JUGUETES ESTA HOTEL
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        defaultValue: [
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxik8f-0VdGyTPqLlOxXhJOHPms35wKycNT37kSN7_e-d7Bt3bOYslLO_BbD0ySMLvGsg&usqp=CAU",
-        ],
-      },
-      /*stars: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
-      review: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },*/
       status: {
         type: DataTypes.BOOLEAN,
-        defaultValue: true,
+        allowNull: false,
+      },
+      purchase_history: {
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: [],
+      },
+      user_password: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
     }
     /* DISCUTIR CON LOS CHICOS SI QUIEREN ELIMINAR EL DATO AUTOMATICO DE
