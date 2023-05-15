@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "order_detail",
     {
-      id: {
+      order_detail_id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,

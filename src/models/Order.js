@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "order",
     {
-      id: {
+      order_id: {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
