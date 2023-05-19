@@ -40,8 +40,9 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Product, OrderDetail, Order, Payment, Rating, Stock, User } =
   sequelize.models;
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
+// Relacion productos/rating
+Product.hasMany(Rating);
+Rating.belongsTo(Product);
 //relacion entre User y User_travel
 /*User.belongsToMany(User_travel, { through: "travel_user" });
 User_travel.belongsToMany(User, { through: "travel_user" });
@@ -49,8 +50,8 @@ User_travel.belongsToMany(User, { through: "travel_user" });
 Bills.belongsToMany(User_travel, { through: "bills_travels" });
 User_travel.belongsToMany(Bills, { through: "bills_travels" });*/
 //relacion entre Order_Detail y User
-OrderDetail.belongsTo(User, { foreignKey: "user_id" });
-User.hasMany(OrderDetail, { foreignKey: "user_id" });
+//User.hasMany(OrderDetail, { as: "order_detail", foreignKey: "user_id" });
+//OrderDetail.belongsTo(User, { through: "user_id" });
 /*//relacion entre Services y Room
 Services.belongsToMany(Room, { through: "room_services" });
 Room.belongsToMany(Services, { through: "room_services" });

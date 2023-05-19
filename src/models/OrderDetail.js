@@ -1,12 +1,14 @@
 const { DataTypes } = require("sequelize");
-
+// Exportamos una funcion que define el modelo
+// Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
+  // defino el modelo
   sequelize.define(
     "order_detail",
     {
       order_detail_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
+        autoincrement: true,
         allowNull: false,
         primaryKey: true,
       },
@@ -18,15 +20,17 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      state: {
-        type: DataTypes.BOOLEAN,
+      order_detail_date: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
-        defaultValue: true,
+      },
+      detail_order_status: {
+        type: DataTypes.ENUM("active", "inactive"),
+        allowNull: true,
       },
     },
     {
       timestamps: false,
-      freezeTableName: true,
     }
   );
 };

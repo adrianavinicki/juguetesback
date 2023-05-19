@@ -1,26 +1,28 @@
 const { DataTypes } = require("sequelize");
-
+// Exportamos una funcion que define el modelo
+// Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
+  // defino el modelo
   sequelize.define(
     "order",
     {
       order_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
+        autoincrement: true,
         allowNull: false,
         primaryKey: true,
       },
-      totalPrice: {
+      totalprice: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      state: {
-        type: DataTypes.ENUM("succeeded, processing, failed"),
+      order_status: {
+        type: DataTypes.ENUM("success", "failed", "in process"),
         allowNull: false,
       },
     },
     {
       timestamps: false,
-      freezeTableName: true,
     }
   );
 };
