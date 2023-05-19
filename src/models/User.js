@@ -43,7 +43,7 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM("Administrador", "Cliente"),
         allowNull: false,
       },
-      status: {
+      user_status: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },

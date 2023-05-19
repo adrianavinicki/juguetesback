@@ -47,7 +47,7 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },*/
-      status: {
+      product_status: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
