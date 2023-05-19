@@ -37,20 +37,22 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Product } = sequelize.models;
+const { Product, OrderDetail, Order, Payment, Rating, Stock, User } =
+  sequelize.models;
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
+// Relacion productos/rating
+Product.hasMany(Rating);
+Rating.belongsTo(Product);
 //relacion entre User y User_travel
 /*User.belongsToMany(User_travel, { through: "travel_user" });
 User_travel.belongsToMany(User, { through: "travel_user" });
 //relacion entre Bills y User_travel
 Bills.belongsToMany(User_travel, { through: "bills_travels" });
-User_travel.belongsToMany(Bills, { through: "bills_travels" });
-//relacion entre Bills y User
-Bills.belongsTo(User, { foreignKey: "idUser" });
-User.hasMany(Bills, { foreignKey: "idUser" });
-//relacion entre Services y Room
+User_travel.belongsToMany(Bills, { through: "bills_travels" });*/
+//relacion entre Order_Detail y User
+//User.hasMany(OrderDetail, { as: "order_detail", foreignKey: "user_id" });
+//OrderDetail.belongsTo(User, { through: "user_id" });
+/*//relacion entre Services y Room
 Services.belongsToMany(Room, { through: "room_services" });
 Room.belongsToMany(Services, { through: "room_services" });
 //relacion entre Hotel y Room

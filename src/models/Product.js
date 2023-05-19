@@ -6,7 +6,6 @@ module.exports = (sequelize) => {
   sequelize.define(
     "product",
     {
-      
       id_product: {
         type: DataTypes.INTEGER,
         autoincrement: true,
@@ -48,7 +47,7 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },*/
-      status: {
+      product_status: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
