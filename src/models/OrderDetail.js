@@ -4,9 +4,9 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "order_detail",
+    "orderdetail",
     {
-      order_detail_id: {
+      detail_id: {
         type: DataTypes.INTEGER,
         autoincrement: true,
         allowNull: false,
