@@ -6,15 +6,6 @@ module.exports = (sequelize) => {
   sequelize.define(
     "payment",
     {
-      // ID : viene del sistema
-      /*item: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },*/
       order_date: {
         type: DataTypes.DATEONLY,
         allowNull: false,

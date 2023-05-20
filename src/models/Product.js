@@ -39,14 +39,6 @@ module.exports = (sequelize) => {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxik8f-0VdGyTPqLlOxXhJOHPms35wKycNT37kSN7_e-d7Bt3bOYslLO_BbD0ySMLvGsg&usqp=CAU",
         ],
       },
-      /*stars: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
-      review: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },*/
       product_status: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
