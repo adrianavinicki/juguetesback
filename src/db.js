@@ -62,8 +62,10 @@ Detailorder.belongsTo(Product);
 Order.hasMany(Detailorder);
 Detailorder.belongsTo(Order);
 //relacion entre Order_Detail y User
-User.hasMany(Detailorder);
-Detailorder.belongsTo(User);
+User.belongsToMany(Detailorder, { through: "cart" });
+Detailorder.belongsTo(User, { through: "cart" });
+User.belongsToMany(Order, { through: "userorder" });
+Order.belongsTo(User, { through: "userorder" });
 // relacion usuarios/pagos
 User.hasMany(Payment);
 Payment.belongsTo(User);
