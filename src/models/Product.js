@@ -26,6 +26,7 @@ module.exports = (sequelize) => {
       },
       minimun_age: {
         type: DataTypes.INTEGER,
+        //allowNull: true,
         allowNull: false,
       },
       description: {
@@ -34,10 +35,9 @@ module.exports = (sequelize) => {
       },
       image: {
         // FALTA REDEFINIR EL DEFAULT VALUE DE JUGUETES ESTA HOTEL
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        defaultValue: [
+        type: DataTypes.STRING,
+        defaultValue:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxik8f-0VdGyTPqLlOxXhJOHPms35wKycNT37kSN7_e-d7Bt3bOYslLO_BbD0ySMLvGsg&usqp=CAU",
-        ],
       },
       product_status: {
         type: DataTypes.BOOLEAN,
