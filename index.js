@@ -18,16 +18,23 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
-const { loadAllModelsInDB } = require("./src/controllers/loadData.js");
+const {
+  loadProductsInDB,
+  loadStocksInDB,
+  loadPricesInDB,
+} = require("./src/controllers/loadData.js");
 const { conn } = require("./src/db.js");
 
 require("dotenv").config();
 const { PORT } = process.env;
 //Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
+  //conn.sync({ force: false }).then(async () => {
   //lo dejamos en true mientras construimos las bases y cargamos, luego va a false para que no borre lo cargado
   server.listen(PORT, async () => {
-    loadAllModelsInDB(); // eslint-disable-line no-console
+    loadProductsInDB(); // eslint-disable-line no-console
+    loadStocksInDB(); // eslint-disable-line no-console
+    loadPricesInDB();
     console.log(`listening at ${PORT}`);
   });
 });

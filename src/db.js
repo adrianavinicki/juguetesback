@@ -37,7 +37,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Product, Detailorder, Order, Payment, Rating, Stock, User } =
+const { Product, Detailorder, Order, Payment, Rating, Stock, User, Price } =
   sequelize.models;
 
 // Relacion productos/rating
@@ -50,8 +50,11 @@ Rating.belongsTo(User, { foreignKey: "user_id" });
 User.belongsToMany(Product, { through: "favoritos" });
 Product.belongsToMany(User, { through: "favoritos" });
 // relacion producto/stock
-Product.belongsTo(Stock);
-Stock.belongsTo(Product, { foreignKey: "id_product" });
+//Product.hasOne(Stock);
+Stock.hasMany(Product);
+// relacion producto/precio
+//Product.hasOne(Price);
+Price.hasMany(Product);
 // relacion payment/order
 Payment.hasOne(Order);
 Order.hasOne(Payment);
