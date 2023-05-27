@@ -26,12 +26,19 @@ module.exports = (sequelize) => {
       },
       minimun_age: {
         type: DataTypes.INTEGER,
-        //allowNull: true,
         allowNull: false,
       },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        defaulValue: 0,
+      },
+      price: {
+        type: DataTypes.FLOAT(2),
+        defaulValue: 0,
       },
       image: {
         // FALTA REDEFINIR EL DEFAULT VALUE DE JUGUETES ESTA HOTEL
@@ -43,11 +50,9 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       },
-    }
-    /* DISCUTIR CON LOS CHICOS SI QUIEREN ELIMINAR EL DATO AUTOMATICO DE
-    FECHA DE CREACION DEL PRODUCTO Y SU ULTIMA ACTUALIZACION
+    },
     {
       timestamps: false,
-    }*/
+    }
   );
 };

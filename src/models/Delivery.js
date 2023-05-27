@@ -4,17 +4,21 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "price",
+    "delivery",
     {
-      price_id: {
+      id: {
         type: DataTypes.INTEGER,
         autoincrement: true,
         allowNull: false,
         primaryKey: true,
       },
-      price: {
-        type: DataTypes.FLOAT(2),
-        defaulValue: 0,
+      delivered_date: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      delivery_status: {
+        type: DataTypes.ENUM("in processs", "dispatched", "delivered"),
+        allowNull: false,
       },
     },
     {
