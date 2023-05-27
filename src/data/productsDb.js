@@ -9,8 +9,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdxjgX_Wu5dfBDX5m9YGH12YZ4LisG8q3pEg&usqp=CAU",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 1,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 2,
@@ -23,8 +23,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsbp4765aENZ5WnZRjDlSgigsy3_8_Q8QcCVr-omKgWSMtsnZlEps8cetju0tiXN9ysNk&usqp=CAU",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 3,
@@ -36,8 +36,8 @@ const listProducts = [
     image:
       "https://m.media-amazon.com/images/I/61ZvnbbbfdL._AC_UF894,1000_QL80_.jpg",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 4,
@@ -50,8 +50,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAdTKo6TOfY51by5TGHCj7pQhlq7kpguoPHQ&usqp=CAU",
     product_status: true,
-    stockStockId: 6,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 5,
@@ -63,8 +63,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToLtZNuCiWSCZQKw3JwAHP1gJJYRnvkZZbwwt5k2Xx5H-uAxsTjsY-EG-i7-AMaQXQZ9c&usqp=CAU",
     product_status: true,
-    stockStockId: 6,
-    pricePriceId: 2,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 6,
@@ -76,8 +76,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4kx8UICMPlClIVLqpbLkQ42kuzHvXX_K7lrR-FYeWnjnF8jukCJIPdHMEmREv-4_J408&usqp=CAU",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 2,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 7,
@@ -90,8 +90,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQukLij0hFUkDdh7kL6qSbAg3LZDU6FhurZY4zMOrKtped6ngL2DP2atpgps-J5wUH14nE&usqp=CAU",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 8,
@@ -104,8 +104,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgutQ9hONo_tlf35fKVWekPtpe6So7_ZQkAQ&usqp=CAU",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 9,
@@ -118,8 +118,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR966ukW5XMpLHIumMLi4nm7EY4hDBGsUoyweB7nrm-Ekdt-Yu4qd24RRGjcayOoWI9t8M&usqp=CAU",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 10,
@@ -132,8 +132,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2V7bPq6p1pc6rF60QLgDijfnxQ7miOl-dbA&usqp=CAU",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 11,
@@ -146,8 +146,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBb2SxlbTpsJu8mwlsaXgSQ3G67Q0Xvkge3SKjS1ls1z60U7P_eZYlrjOuGImbs4H4SA&usqp=CAU",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 1,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 12,
@@ -160,8 +160,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjefDsnxwZ9Qo0SrJjuqgg8QoluCHClGsQbg&usqp=CAU",
     product_status: true,
-    stockStockId: 5,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 13,
@@ -174,8 +174,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmxJb6oAkmTgwLvcLNYd4PMCTn7uhFCDCXLA&usqp=CAU",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 5,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 14,
@@ -188,8 +188,8 @@ const listProducts = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_703800-MLA54247359908_032023-V.jpg",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 15,
@@ -202,8 +202,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhwSQ9b8W3pOuVgkOVjvL_ZSLwqYQ98Bjohw&usqp=CAU",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 16,
@@ -216,8 +216,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXQLoa_XoNmD4QSd2Kmcl1GiZvmc3gg2hlTg&usqp=CAU",
     product_status: true,
-    stockStockId: 5,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 17,
@@ -230,8 +230,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRjKJsxEhdYtYWhOEtNi-cYaW8N99teDlBg&usqp=CAU",
     product_status: true,
-    stockStockId: 1,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 18,
@@ -244,8 +244,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKDrpKZV6_P8jdgZjOo9XKWtT0ZXDjJxJaQltROFXyK6ztfDvcjgCTOZw-RJdA-FdrM0s&usqp=CAU",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 19,
@@ -258,8 +258,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5jpLt0GenWLIpepse1tjxM_atxc3miftIrx4uOI8_bNoF42QG9C66LI6ckZyhP6K3Hik&usqp=CAU",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 1,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 20,
@@ -272,8 +272,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-J0in6rk2JZGfsAfqeCaieQoLajlEksZo5w&usqp=CAU",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 21,
@@ -285,8 +285,8 @@ const listProducts = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr41Sj8y6e5JEzLS2rkJigBswC2p2IubFeOQ&usqp=CAU",
     product_status: true,
-    stockStockId: 1,
-    pricePriceId: 2,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 22,
@@ -298,8 +298,8 @@ const listProducts = [
       "La Casa de Ensueño de Barbie es una casa de muñecas de 3 pisos con siete habitaciones, un ascensor funcional y más de 70 accesorios para infinitas posibilidades de juego.",
     image: "https://https://m.media-amazon.com/images/I/81owpGnSI-L.jpg",
     product_status: true,
-    stockStockId: 5,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 23,
@@ -311,8 +311,8 @@ const listProducts = [
       "Construye el icónico Halcón Milenario de Star Wars con más de 1300 piezas y recrea escenas de las películas con las mini-figuras de Han Solo, Chewbacca y otros personajes.",
     image: "https://i.blogs.es/f83a2b/millennium-falcon-lego-7/840_560.jpg",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 24,
@@ -324,8 +324,8 @@ const listProducts = [
       "La pistola Nerf N-Strike Elite Disruptor puede disparar seis dardos seguidos a una distancia de hasta 27 metros. Tiene un tambor giratorio que permite recargar rápidamente durante las batallas intensas.",
     image: "https://i.ytimg.com/vi/oPGv5t_FbWA/maxresdefault.jpg",
     product_status: true,
-    stockStockId: 1,
-    pricePriceId: 2,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 25,
@@ -337,8 +337,8 @@ const listProducts = [
       "La Pista de Choques Criss Cross de Hot Wheels es una pista de carreras de alta velocidad con múltiples zonas de choque y cuatro lanzadores para que hasta cuatro jugadores compitan al mismo tiempo.",
     image: "https://m.media-amazon.com/images/I/71291zjlclL.jpg",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 26,
@@ -351,8 +351,8 @@ const listProducts = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_806194-MCO32633177538_102019-O.jpg",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 27,
@@ -365,8 +365,8 @@ const listProducts = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_754681-MCO47370126094_092021-O.jpg",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 28,
@@ -379,8 +379,8 @@ const listProducts = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_948211-MCO47037555465_082021-O.jpg",
     product_status: true,
-    stockStockId: 1,
-    pricePriceId: 1,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 29,
@@ -392,8 +392,8 @@ const listProducts = [
       "El set de arte Crayola Inspiration viene con 140 piezas de arte, incluyendo crayones, marcadores, lápices de colores y papel. Todo viene en una caja de transporte resistente para llevarlo a cualquier lugar.",
     image: "https://m.media-amazon.com/images/I/91LtElVE2dL.jpg",
     product_status: true,
-    stockStockId: 5,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 30,
@@ -406,8 +406,8 @@ const listProducts = [
     image:
       "https://falabella.scene7.com/is/image/FalabellaCO/1937942_3?wid=800&hei=800&qlt=70",
     product_status: true,
-    stockStockId: 6,
-    pricePriceId: 1,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 31,
@@ -419,8 +419,8 @@ const listProducts = [
       "La Pista Torbellino de Hot Wheels es un Emocionante juego de guías espontáneo!, Enfréntese cara a cara en tres intersecciones zonas de choque., Mira como los coches de la pista, maniobra restringida faltantes o chocar entre sí, Dos lanzadores para ambiente competencia se conecta a otros conjuntos de Hot Wheels Track (se vende por separado), Incluye un vehículo Hot Wheels",
     image: "https://m.media-amazon.com/images/I/81UmTje59DL._AC_SL1500_.jpg",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 5,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 32,
@@ -433,8 +433,8 @@ const listProducts = [
     image:
       "https://i5.walmartimages.ca/images/Thumbnails/336/389/6000203336389.jpg",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 33,
@@ -446,8 +446,8 @@ const listProducts = [
       "Este juguete interactivo enseña habilidades de codificación a través de una serie de segmentos conectados que se pueden reorganizar para hacer que Code-a-Pillar se mueva de diferentes maneras. Incluye un segmento de sonido y tres segmentos rectos, y los segmentos adicionales se pueden comprar por separado.",
     image: "https://m.media-amazon.com/images/I/8175bmbrKNL.jpg",
     product_status: true,
-    stockStockId: 4,
-    pricePriceId: 1,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 34,
@@ -460,8 +460,8 @@ const listProducts = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_639612-MCO43818539402_102020-O.jpg",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 2,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 35,
@@ -474,8 +474,8 @@ const listProducts = [
     image:
       "https://media.kohlsimg.com/is/image/kohls/5831685?wid=600&hei=600&op_sharpen=1",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 36,
@@ -487,8 +487,8 @@ const listProducts = [
       "Un juego de masa para modelar Play-Doh en una variedad de colores, perfecto para esculpir y moldear.",
     image: "https://m.media-amazon.com/images/I/51pu4wj05wL._AC_.jpg",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 3,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 37,
@@ -501,8 +501,8 @@ const listProducts = [
     image:
       "https://m.media-amazon.com/images/I/71CWlK5TaLL._AC_UF894,1000_QL80_.jpg",
     product_status: true,
-    stockStockId: 3,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 38,
@@ -515,8 +515,8 @@ const listProducts = [
     image:
       "https://http2.mlstatic.com/D_NQ_NP_855796-MCO47784765179_102021-O.jpg",
     product_status: true,
-    stockStockId: 6,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 39,
@@ -529,8 +529,8 @@ const listProducts = [
     image:
       "https://m.media-amazon.com/images/I/71o1dhAdiOL._AC_UF894,1000_QL80_.jpg",
     product_status: true,
-    stockStockId: 5,
-    pricePriceId: 4,
+    quantity: 2000,
+    price: 1999,
   },
   {
     id_product: 40,
@@ -542,8 +542,8 @@ const listProducts = [
       "Un reloj inteligente para niños con juegos, cámara y carátulas personalizables para juegos y aprendizaje interactivos.",
     image: "https://image.smythstoys.com/original/desktop/167082.jpg",
     product_status: true,
-    stockStockId: 2,
-    pricePriceId: 6,
+    quantity: 2000,
+    price: 1999,
   },
 ];
 
