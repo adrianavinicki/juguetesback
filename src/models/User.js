@@ -55,11 +55,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-    }
-    /* DISCUTIR CON LOS CHICOS SI QUIEREN ELIMINAR EL DATO AUTOMATICO DE
-    FECHA DE CREACION DEL PRODUCTO Y SU ULTIMA ACTUALIZACION
+    },
     {
       timestamps: false,
-    }*/
+    }
   );
 };
