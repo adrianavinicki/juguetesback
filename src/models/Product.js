@@ -8,12 +8,13 @@ module.exports = (sequelize) => {
     {
       id_product: {
         type: DataTypes.INTEGER,
-        autoincrement: true,
-        allowNull: false,
+        autoIncrement: true,
+        //allowNull: false,
         primaryKey: true,
       },
       name: {
         type: DataTypes.STRING,
+        //unique: true, no va x que duplicamos muchos nombres
         allowNull: false,
       },
       brand: {
