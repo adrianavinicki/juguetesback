@@ -4,12 +4,18 @@ const {
   getProductsByProperties,
 } = require("../controllers/getAllProducts.js");
 const { postNewProduct } = require("../controllers/postProducts.js");
+const {
+  putProduct,
+  newStatusProduct,
+} = require("../controllers/putProducts.js");
 
 const router = Router();
 
 router.get("/:id", getById);
 router.get("/", getProductsByProperties);
 router.post("/create", postNewProduct);
+router.put("/update/:id", putProduct);
+router.put("/statusupdate/:id", newStatusProduct);
 
 module.exports = router;
 
