@@ -1,105 +1,147 @@
-/* const { User } = require('../db');
-const { Op } = require("sequelize");
-const { onlyLettersCheck, onlyDateCheck, onlyNumbersCheck, isEmailCheck, httpsLinkCheck, statusCheck, priviligeCheck } = require('../helpfuls/regex');
-const loadUsers = require('../data/users.json');
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
-const cloudinary = require('cloudinary').v2;
+const { User } = require("../db.js");
+
+const {
+  uservalidation
+} = require("../helpfuls/uservalidation.js");
 
 
-//! GET show all users Users --------------
-// tema de como debo enviar el res.status del error con el next
-// terminar de arreglar linea 15 next(err);
-async function getAllUsers(req, res, next) {
-    try {
-        const allUser = await User.findAll({});
-        return res.status(200).send(allUser)
-    } catch (err) {
-        next(err);
-    };
+
+const getAllUsers = async (req, res) => {
+  try {
+    const usersResult = await User.findAll();
+    res.status(200).json(usersResult);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
 };
 
-async function DisableUser(req, res) {
-    try {
-        let { email } = req.body;
-        const user = await User.findOne({
-            where: {
-                email: email
-            }
+const banUser = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    await User.update(
+      { active: false },
+      {
+        where: {
+          email: email,
+        },
+      }
+    );
+    res.status(200).send({ message: "User is now inactive" });
+  } catch (err) {
+    res.status(400).send({ message: err });
+  }
+};
+
+const unBanUser = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const userExists = await uservalidation.getUserID(email);
+    if (userExists) {
+      await User.update({ active: true }, { where: { email: email } });
+      res.status(200).send();
+    } else {
+      res.status(404).send({ message: "Specified user does not exists" });
+    }
+  } catch (err) {
+    res.status(500).send({ message: qweqweqwe.message });
+  }
+};
+
+const modifyRole = async (req, res) => {
+  const { email, role } = req.body;
+  try {
+    const userExists = await userHelper.getUserID(email);
+    if (userExists) {
+      await User.update({ role_id: role }, { where: { email: email } });
+      res.status(200).send();
+    } else {
+      res.status(404).send({ message: "Specified user does not exists" });
+    }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+const passwordChange = async (req, res, next) => {
+  const { email, password } = req.body;
+  if (!email || !password) return res.send("All data must be sent");
+  try {
+    const user = await User.findOne({
+      where: { email },
+    });
+    if (user) {
+      const uid = user.user_id;
+      const newPassword = await firebase.auth().updateUser(uid, {
+        password: password,
+      });
+      return res.send(newPassword);
+    }
+    return res.status(404).send("User not found");
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GUARDA CON ESTA FUNC QUE ROMPE EL BACK
+const deleteUser = async (req, res, next) => {
+  const { email } = req.query;
+
+  try {
+    const user = await User.findOne({
+      where: { email },
+    });
+    if (user) {
+      const uid = user.user_id;
+      firebase
+        .auth()
+        .deleteUser(uid)
+        .then(async () => {
+          const deletedUser = await User.destroy({
+            where: { email },
+          });
+          return res.send(deletedUser);
         });
-        if (user.status === "active") {
-            user.update({ status: "disabled" });
-        } else if (user.status === "disabled") {
-            user.update({ status: "active" });
-        }
-        res.status(201).json(user);
-        //res.send(user);
-    } catch (err) {
-        res.status(401).json({ message: err });
-    };
+    } else {
+      return res.status(404).send("User not found");
+    }
+  } catch (error) {
+    res.send({ message: error.message });
+  }
 };
-//!-------------- Modifi user -------------------------------  
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
- });
- async function ModifyUser(req, res) {
-    try {
-       let { email } = req.params;
-       let { id_user, first_name, last_name, gender, delivery_address, mobile, role_id, user_status, purchase_history, user_password } = req.body;
- 
-       const user = await User.findOne({
-          where: {
-             email: email
-          }
-       });
- 
-       if (!user) {
-          return res.status(404).json({msg: "user not found"});
-       }
- 
-       let imageUrl;
- 
-       if (req.file) {
-          // Si se proporcionó un archivo, subirlo a Cloudinary y obtener la URL de la imagen
-          const result = await cloudinary.uploader.upload(req.file.path,{
-            public_id: user.email
-          });
-          imageUrl = result.secure_url;
-       } else if (req.body.image) {
-          // Si se proporcionó una URL de imagen, subirla a Cloudinary y obtener la URL de la imagen
-          const result = await cloudinary.uploader.upload(req.body.image,{
-            public_id: user.email
-          });
-          imageUrl = result.secure_url;
-       }
- 
-       // Actualizar la información del usuario y la URL de la imagen, si corresponde
-       user.update({
-          id_user: id_user,
-          first_name: first_name,
-          last_name: last_name,
-          gender: gender,
-          delivery_address: delivery_address,
-          mobile: mobile,
-          role_id:role_id,
-          user_status: user_status,
-          purchase_history:purchase_history,
-          user_password:user_password
-       });
- 
-       // Responder con el usuario actualizado
-       res.status(201).json(user);
-    } catch (err) {
-       res.status(401).json({ message: err });
-    };
- }
+
+const passwordReset = async (req, res, next) => {
+  const { email } = req.body;
+  if (!email) return res.send("Email must be sent");
+  try {
+    const linkReset = await firebase.auth().generatePasswordResetLink(email);
+    res.send(linkReset);
+  } catch (error) {
+    next(error);
+  }
+};
 
 
 
-Module.exports = {
-    getAllUsers,
-    DisableUser,
-    ModifyUser
-}; */
+
+
+
+
+
+
+
+
+
+
+module.exports = {
+  getAllUsers,
+  banUser,
+  unBanUser,
+  modifyRole,
+  passwordChange,
+  deleteUser,
+  passwordReset,
+
+};
+
