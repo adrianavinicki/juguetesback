@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
       user_id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
-        allowNull: false,
+        /* allowNull: false, */
         primaryKey: true,
       },
       first_name: {
@@ -45,7 +45,7 @@ module.exports = (sequelize) => {
       },
       user_status: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        defaultValue: true,
       },
       purchase_history: {
         type: DataTypes.ARRAY(DataTypes.JSON),
