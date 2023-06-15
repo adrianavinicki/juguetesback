@@ -53,8 +53,8 @@ Product.belongsToMany(User, { through: "favoritos" });
 Payment.hasOne(Order);
 Order.hasOne(Payment);
 //relacion producto/orderdetail
-Product.hasMany(Detailorder);
-Detailorder.belongsTo(Product);
+Detailorder.belongsTo(Product, { foreignKey: 'id_product' });
+Product.hasMany(Detailorder, { foreignKey: 'id_product' });
 //relacion orders/orderdetail
 Order.hasMany(Detailorder);
 Detailorder.belongsTo(Order);
