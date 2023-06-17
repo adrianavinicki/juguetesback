@@ -6,7 +6,7 @@ const {
   onlyNumbersCheck,
   onlyLettersCheck,
   onlyLettersOrNumbersCheck,
-} = require("../helpfuls/validation.js");
+} = require("../helpers/validation.js");
 const {
   getProducts,
   getProductByBrandAndStatus,
@@ -16,7 +16,7 @@ const {
   getProductsByStatus,
   getProductsByCategory,
   getProductByCategoryAndStatus,
-} = require("../helpfuls/productshelps.js");
+} = require("../helpers/productshelps.js");
 
 // -----------xxxx-------------------------
 // Traigo producto x id de mi base de datos
