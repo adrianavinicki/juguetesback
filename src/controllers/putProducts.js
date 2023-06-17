@@ -5,7 +5,7 @@ const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } =
   process.env;
 
 const { Product } = require("../db");
-const { onlyNumbersCheck } = require("../helpfuls/validation.js");
+const { onlyNumbersCheck } = require("../helpers/validation.js");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

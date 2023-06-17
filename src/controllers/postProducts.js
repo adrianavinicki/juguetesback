@@ -5,7 +5,7 @@ const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } =
   process.env;
 
 const { Product } = require("../db");
-const { onlyNumbersCheck } = require("../helpfuls/validation.js");
+//const { onlyNumbersCheck } = require("../helpfuls/validation.js");
 
 //crear un producto
 
@@ -16,8 +16,7 @@ cloudinary.config({
 });
 
 const postNewProduct = async (req, res, next) => {
-  const {
-    id_product,
+  let {
     name,
     brand,
     category,
@@ -25,30 +24,30 @@ const postNewProduct = async (req, res, next) => {
     description,
     quantity,
     price,
+    image,
     product_status,
   } = req.body;
-
+  console.log("este es el body: ", req.body);
   try {
     const showImage = await cloudinary.uploader.upload(req.body.image, {
       public_id: name, // Asignar el nombre del producto como public_id
     });
-    image = showImage.secure_url; // Guardar la URL de la imagen en un nuevo array*/
-
+    image = showImage.secure_url; // Guardar la URL de la imagen en un nuevo array
     const productCreated = await Product.findOrCreate({
-      where: { id_product },
+      where: { name },
       defaults: {
-        id_product,
         name,
         brand,
         category,
         minimun_age,
         description,
-        quantity,
-        price,
+        quantity: parseInt(quantity),
+        price: parseFloat(price),
         image,
         product_status,
       },
     });
+    //console.log("Producto creado correctamente:", productCreated.toJSON());
     !productCreated
       ? res.status(400).json({ message: "Product already exists" })
       : res.status(200).json({ message: "Product created" });
