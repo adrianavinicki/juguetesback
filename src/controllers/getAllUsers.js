@@ -1,10 +1,19 @@
 const { User } = require("../db.js");
+const userValidation = require("../helpers/uservalidation.js");
+//const firebase = require("../firebase-config.js");
 
-const {
-  uservalidation
-} = require("../helpfuls/uservalidation.js");
+const userCheck = async (req, res) => {
+  const uid = req.uid;
 
-
+  try {
+    const userFind = await User.findByPk(uid);
+    if (userFind === null)
+      return res.status(204).send({ message: "User not registered" });
+    return res.status(200).send({ email: userFind.email, name: userFind.name });
+  } catch (err) {
+    return res.status(500).send({ message: err.message });
+  }
+};
 
 const getAllUsers = async (req, res) => {
   try {
@@ -15,7 +24,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-const banUser = async (req, res) => {
+/*const banUser = async (req, res) => {
   const { email } = req.body;
 
   try {
@@ -37,7 +46,7 @@ const unBanUser = async (req, res) => {
   const { email } = req.body;
 
   try {
-    const userExists = await uservalidation.getUserID(email);
+    const userExists = await userHelper.getUserID(email);
     if (userExists) {
       await User.update({ active: true }, { where: { email: email } });
       res.status(200).send();
@@ -122,26 +131,84 @@ const passwordReset = async (req, res, next) => {
   }
 };
 
+const createUserByAdmin = async (req, res) => {
+  const { username, email, password, role } = req.body;
+  try {
+    await firebase
+      .auth()
+      .createUser({
+        email: email,
+        password: password,
+        username: username,
+      })
+      .then(async (userRecord) => {
+        const uid = userRecord.uid;
+        const userByAdmin = await User.create({
+          user_id: uid,
+          name: username,
+          email: email,
+          role_id: role,
+          password,
+        });
+        return res.send(userByAdmin);
+      })
+      .catch((error) => {
+        console.error("Error creating new user:", error);
+      });
+  } catch (error) {
+    console.error("Error creating new user", error);
+    res.send({ message: error.message });
+  }
+};
 
+const isAdmin = async (req, res) => {
+  const uid = req.uid;
 
+  try {
+    userRole = await User.findByPk(uid);
+    if (userRole.role_id === "A") {
+      return res.status(200).send(true);
+    } else {
+      return res.status(202).send(false);
+    }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
 
+const createUser = async (req, res) => {
+  const { email, username, role } = req.body;
+  const uid = req.uid;
 
+  if (!email || !username || email === "" || username === "")
+    return res.status(400).send({
+      message: "All creation fields must be sent, and they can't be empty",
+    });
 
-
-
-
-
-
-
+  try {
+    await User.create({
+      user_id: uid,
+      name: username,
+      email: email,
+      role_id: "A",
+      active: true,
+    });
+    return res.status(201).send({ message: "User created" });
+  } catch (err) {
+    return res.status(400).send({ message: err.message });
+  }
+};*/
 
 module.exports = {
+  userCheck,
   getAllUsers,
-  banUser,
+  /*banUser,
   unBanUser,
   modifyRole,
   passwordChange,
   deleteUser,
   passwordReset,
-
+  createUserByAdmin,
+  isAdmin,
+  createUser,*/
 };
-
