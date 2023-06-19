@@ -53,6 +53,36 @@ const createUser = async (req, res, next) => {
   }
 };
 
+/*const createUserByAdmin = async (req, res) => {
+  const { username, email, password, role } = req.body;
+  try {
+    await firebase
+      .auth()
+      .createUser({
+        email: email,
+        password: password,
+        username: username,
+      })
+      .then(async (userRecord) => {
+        const uid = userRecord.uid;
+        const userByAdmin = await User.create({
+          user_id: uid,
+          name: username,
+          email: email,
+          role_id: role,
+          password,
+        });
+        return res.send(userByAdmin);
+      })
+      .catch((error) => {
+        console.error("Error creating new user:", error);
+      });
+  } catch (error) {
+    console.error("Error creating new user", error);
+    res.send({ message: error.message });
+  }
+};*/
+
 module.exports = {
   createUser,
 };
