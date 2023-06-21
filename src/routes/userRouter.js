@@ -11,6 +11,7 @@ const {
   disableUser,
   enableUser,
   changeRole,
+  changePassword,
   /*
   passwordChange,
   deleteUser,
@@ -28,6 +29,7 @@ users.put("/disable", disableUser);
 users.put("/changeRole", changeRole);
 users.put("/enable", enableUser);
 users.get("/findAdmin/:id", isAdmin);
+users.put("/changePassword", changePassword);
 /*users.delete("/delete", deleteUser);
 users.post("/passwordReset", passwordReset);
 users.put("/passwordChange", passwordChange);*/

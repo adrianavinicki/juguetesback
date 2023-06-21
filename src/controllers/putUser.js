@@ -57,10 +57,37 @@ const changeRole = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
+// Cambio de password para los usuarios ingresados a la base sin auth0
+
+const changePassword = async (req, res) => {
+  const { email, newPassword } = req.body;
+  console.log("esto ingresa: ", req.body);
+  try {
+    // Busca el usuario por su ID
+    const user = await User.findOne({ where: { email: email } });
+    console.log("este es user: ", user);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Actualiza la contraseña del usuario--OJO REVISARLA X QUE NO FUNCIONA-NO INGRESA NADA AL UPDATE
+    const userUpdated =
+      user.user_password === newPassword ? newPassword : user_password;
+    await User.update(
+      { user_password: newPassword },
+      { where: { email: email } }
+    );
+    console.log("user updated", userUpdated);
+    return res.status(200).json({ message: "Password updated" });
+  } catch (error) {
+    console.error("Error al cambiar la contraseña:", error);
+    return res.status(500).json({ error });
+  }
+};
 
 /*const changePassword = async (req, res, next) => {
   const { email, password } = req.body;
-  if (!email || !password) return res.send("All data must be sent");
+  if (!email || !password) return res.send("All data must be filled");
   try {
     const user = await User.findOne({
       where: { email },
@@ -76,7 +103,7 @@ const changeRole = async (req, res) => {
   } catch (error) {
     next(error);
   }
-};*/
+};
 
 // GUARDA CON ESTA FUNC QUE ROMPE EL BACK
 /*const deleteUser = async (req, res, next) => {
@@ -120,6 +147,7 @@ module.exports = {
   disableUser,
   enableUser,
   changeRole,
+  changePassword,
   /*
   passwordChange,
   deleteUser,
