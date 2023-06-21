@@ -1,6 +1,6 @@
 const listProducts = [
   {
-    id_product: 1001,
+    id: 1001,
     name: "Peluche de osito",
     brand: "Juguetelandia",
     category: "Peluches",
@@ -13,7 +13,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1002,
+    id: 1002,
     name: "Set de lego clásico",
     brand: "LEGO",
     category: "Bloques de construcción",
@@ -27,7 +27,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1003,
+    id: 1003,
     name: "Muñeca Barbie",
     brand: "Mattel",
     category: "Muñecas",
@@ -40,7 +40,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1004,
+    id: 1004,
     name: "Camión de bomberos de juguete",
     brand: "ToysRUs",
     category: "Vehículos",
@@ -54,7 +54,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1005,
+    id: 1005,
     name: "Pelota de fútbol",
     brand: "SportsWorld",
     category: "Deportes",
@@ -67,7 +67,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1006,
+    id: 1006,
     name: "Puzzle de animales",
     brand: "Toyland",
     category: "Puzzles",
@@ -80,7 +80,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1007,
+    id: 1007,
     name: "Kit de experimentos científicos",
     brand: "ScienceKids",
     category: "Ciencia",
@@ -94,7 +94,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1008,
+    id: 1008,
     name: "Cocina de juguete",
     brand: "Playtime",
     category: "Imitación",
@@ -108,7 +108,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1009,
+    id: 1009,
     name: "Lego City - Estación de Policía",
     brand: "LEGO",
     category: "Bloques de construcción",
@@ -122,7 +122,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1010,
+    id: 1010,
     name: "Muñeca bebé llorona",
     brand: "Berjuan",
     category: "Muñecas",
@@ -136,7 +136,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1011,
+    id: 1011,
     name: "Pistola Nerf Elite Disruptor",
     brand: "Nerf",
     category: "Juegos de exterior",
@@ -150,7 +150,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1012,
+    id: 1012,
     name: "Juego de mesa Monopoly",
     brand: "Hasbro",
     category: "Juegos de mesa",
@@ -164,7 +164,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1013,
+    id: 1013,
     name: "Robot educativo mBot",
     brand: "Makeblock",
     category: "Robótica",
@@ -178,7 +178,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1014,
+    id: 1014,
     name: "Set de peluquería de juguete",
     brand: "Barbie",
     category: "Juegos de imitación",
@@ -192,7 +192,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1015,
+    id: 1015,
     name: "Set de construcción de robots",
     brand: "Meccano",
     category: "Robótica",
@@ -206,7 +206,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1016,
+    id: 1016,
     name: "Lego Classic Creative Bricks",
     brand: "LEGO",
     category: "Bloques de construcción",
@@ -220,7 +220,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1017,
+    id: 1017,
     name: "Barbie Dreamhouse",
     brand: "Mattel",
     category: "Muñecas",
@@ -234,7 +234,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1018,
+    id: 1018,
     name: "Coche de control remoto",
     brand: "ToyZone",
     category: "Vehículos",
@@ -248,7 +248,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1019,
+    id: 1019,
     name: "Puzzle de animales de la selva",
     brand: "Puzzlemaster",
     category: "Puzzles",
@@ -262,7 +262,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1020,
+    id: 1020,
     name: "Peluche interactivo",
     brand: "Juguetitos",
     category: "Peluches",
@@ -276,7 +276,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1021,
+    id: 1021,
     name: "Peluche de leon",
     brand: "Juguetelandia",
     category: "Peluches",
@@ -289,7 +289,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1022,
+    id: 1022,
     name: "Barbie Dreamhouse",
     brand: "Barbie",
     category: "Casa de muñecas",
@@ -302,7 +302,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1023,
+    id: 1023,
     name: "LEGO Star Wars Halcón Milenario",
     brand: "LEGO",
     category: "Bloques de construcción",
@@ -315,7 +315,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1024,
+    id: 1024,
     name: "Nerf N-Strike Elite Disruptor Blaster",
     brand: "Nerf",
     category: "Pistola",
@@ -328,7 +328,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1025,
+    id: 1025,
     name: "Hot Wheels Pista de Choques Criss Cross",
     brand: "Hot Wheels",
     category: "Pista de carreras",
@@ -341,7 +341,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1026,
+    id: 1026,
     name: "Play-Doh Cocina del Chef",
     brand: "Play-Doh",
     category: "Arte y manualidades",
@@ -355,7 +355,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1027,
+    id: 1027,
     name: "Barbie Fashionista Muñeca con Silla de Ruedas",
     brand: "Mattel",
     category: "Muñeca",
@@ -369,7 +369,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1028,
+    id: 1028,
     name: "Nerf Ultra One Blaster",
     brand: "Nerf",
     category: "Pistola",
@@ -383,7 +383,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1029,
+    id: 1029,
     name: "Crayola Inspiration Art Case",
     brand: "Crayola",
     category: "Arte y manualidades",
@@ -396,7 +396,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1030,
+    id: 1030,
     name: "Jenga Classic Juego de Mesa",
     brand: "Hasbro",
     category: "Juego de mesa",
@@ -410,7 +410,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1031,
+    id: 1031,
     name: "Hot Wheels Pista Torbellino",
     brand: "Hot Wheels",
     category: "Pista de carreras",
@@ -423,7 +423,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1032,
+    id: 1032,
     name: "Melissa & Doug Wooden Building Blocks Set",
     brand: "Melissa & Doug",
     category: "Construction toys",
@@ -437,7 +437,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1033,
+    id: 1033,
     name: "Fisher-Price Think & Learn Code-a-Pillar",
     brand: "Fisher-Price",
     category: "Electronic toys",
@@ -450,7 +450,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1034,
+    id: 1034,
     name: "Hot Wheels Track Builder System",
     brand: "Hot Wheels",
     category: "Vehicle Toys",
@@ -464,7 +464,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1035,
+    id: 1035,
     name: "Fisher-Price Little People Caring for Animals Farm",
     brand: "Fisher-Price",
     category: "Playsets",
@@ -478,7 +478,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1036,
+    id: 1036,
     name: "Play-Doh Modeling Compound 10-Pack Case of Colors",
     brand: "Play-Doh",
     category: "Art and Craft Toys",
@@ -491,7 +491,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1037,
+    id: 1037,
     name: "Melissa & Doug Deluxe Wooden Railway Train Set",
     brand: "Melissa & Doug",
     category: "Vehicle Playsets",
@@ -505,7 +505,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1038,
+    id: 1038,
     name: "Hot Wheels Basic Car 50-Pack",
     brand: "Hot Wheels",
     category: "Die-Cast Vehicles",
@@ -519,7 +519,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1039,
+    id: 1039,
     name: "Melissa & Doug Wooden Scoop and Serve Ice Cream Counter",
     brand: "Melissa & Doug",
     category: "Kitchen Playsets",
@@ -533,7 +533,7 @@ const listProducts = [
     price: 1999,
   },
   {
-    id_product: 1040,
+    id: 1040,
     name: "VTech Kidizoom Smartwatch DX2",
     brand: "VTech",
     category: "Electronic Toys",
