@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
+/* Prueba de como trabajar la rama work-leo01  */
 const { Product } = require("../db");
 const {
   onlyNumbersCheck,
