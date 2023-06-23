@@ -47,7 +47,7 @@ Rating.belongsTo(Product);
 User.hasMany(Rating /*, { as: "ratings", foreignKey: "id" }*/);
 Rating.belongsTo(User /*, { foreignKey: "id" }*/);
 // relacion user/productos favoritos
-User.hasMany(Product, { through: "favoritos" });
+User.belongsToMany(Product, { through: "favoritos" });
 Product.belongsToMany(User, { through: "favoritos" });
 // relacion payment/order
 Payment.hasOne(Order);
