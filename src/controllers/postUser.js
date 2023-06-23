@@ -1,3 +1,6 @@
+require("dotenv").config();
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+
 const { User } = require("../db.js");
 
 const createUser = async (req, res, next) => {
