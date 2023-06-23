@@ -21,10 +21,11 @@ module.exports = {
 
   getUserId: async (email) => {
     const userId = await User.findAll({ where: { email: email } });
+    console.log("userId del validation: ", userId);
     if (userId.length === 0) {
       console.log("Email is not registered");
     } else {
-      return User.user_id;
+      return userId;
     }
   },
 };

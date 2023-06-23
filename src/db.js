@@ -44,8 +44,8 @@ const { Product, Detailorder, Order, Payment, Rating, User, Delivery } =
 Product.hasMany(Rating);
 Rating.belongsTo(Product);
 //relacion entre user/rating
-User.hasMany(Rating, { as: "ratings", foreignKey: "user_id" });
-Rating.belongsTo(User, { foreignKey: "user_id" });
+User.hasMany(Rating /*, { as: "ratings", foreignKey: "id" }*/);
+Rating.belongsTo(User /*, { foreignKey: "id" }*/);
 // relacion user/productos favoritos
 User.belongsToMany(Product, { through: "favoritos" });
 Product.belongsToMany(User, { through: "favoritos" });
@@ -59,20 +59,20 @@ Detailorder.belongsTo(Product);
 Order.hasMany(Detailorder);
 Detailorder.belongsTo(Order);
 //relacion entre Order_Detail y User
-User.belongsToMany(Detailorder, { through: "cart" });
-Detailorder.belongsTo(User, { through: "cart" });
-User.belongsToMany(Order, { through: "userorder" });
-Order.belongsTo(User, { through: "userorder" });
+User.hasMany(Detailorder);
+Detailorder.belongsTo(User);
+User.hasMany(Order);
+Order.belongsTo(User);
 // relacion usuarios/pagos
 User.hasMany(Payment);
 Payment.belongsTo(User);
 // relacion order/delivery
 Delivery.hasOne(Order);
 Order.hasOne(Delivery);
-Detailorder.hasOne(Delivery);
-// relacion order/user x domicilio
-Delivery.hasOne(User);
+//Detailorder.hasOne(Delivery);
+// relacion order/user
 User.hasMany(Delivery);
+Delivery.belongsTo(User);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

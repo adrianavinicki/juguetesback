@@ -1,28 +1,27 @@
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
-/* Prueba de como trabajar la rama work-leo01  */
-const { Product } = require("../db");
+const { Detailorder, Product, User } = require("../db");
 const {
   onlyNumbersCheck,
   onlyLettersCheck,
   onlyLettersOrNumbersCheck,
 } = require("../helpers/validation.js");
 const {
-  getProducts,
-  getProductByBrandAndStatus,
+  getDetailOrder,
+  /*getProductByBrandAndStatus,
   getProductByBrand,
   getProductByNameAndStatus,
   getProductByName,
   getProductsByStatus,
   getProductsByCategory,
-  getProductByCategoryAndStatus,
-} = require("../helpers/productshelps.js");
+  getProductByCategoryAndStatus,*/
+} = require("../helpers/detailordershelps");
 
 // -----------xxxx-------------------------
 // Traigo producto x id de mi base de datos
 
-const getById = async (req, res, next) => {
+/*const getById = async (req, res, next) => {
   const { id } = req.params;
   let check = onlyNumbersCheck(id);
   if (check !== true) return res.status(412).json({ message: "Invalid Input" });
@@ -34,22 +33,22 @@ const getById = async (req, res, next) => {
   } catch (error) {
     res.status(404).json(error.message);
   }
-};
+};*/
 
 // -----------xxxx-------------------------
 // Traigo todos los productos o si hay parametros x producto x categoria/marca/nombre y/o status de mi base de datos
 
-const getProductsByProperties = async (req, res, next) => {
-  const { name, brand, category, status } = req.query;
+/*const getDetailOrderByProperties = async (req, res, next) => {
+  const { detail_id, price, quantity, order_detail_date , detail_order_status, productId, userId} = req.query;
   console.log("este es el query :", req.query);
 
   try {
-    if (category & status) {
-      if (typeof status !== "boolean") {
-        console.log("este es typeof status: ", typeof status);
+    if (detail_id & detail_order_status) {
+      if (typeof detail_order_status !== "active" || detail_order_status !== "inactive") {
+        console.log("este es typeof status: ", typeof detail_order_status);
         return res.status(500).json({ message: "Invalid Input" });
       }
-      let products = await getProductByCategoryAndStatus(
+      let detail = await getProductByCategoryAndStatus(
         category,
         product_status
       );
@@ -120,6 +119,9 @@ const getProductsByProperties = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-};
+};*/
 
-module.exports = { getById, getProductsByProperties };
+module.exports = {
+  /*getById, getDetailOrdersByProperties,*/
+  getDetailOrder,
+};
