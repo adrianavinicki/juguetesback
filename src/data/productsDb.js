@@ -10,7 +10,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdxjgX_Wu5dfBDX5m9YGH12YZ4LisG8q3pEg&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 2999,
   },
   {
     id: 1002,
@@ -24,7 +24,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsbp4765aENZ5WnZRjDlSgigsy3_8_Q8QcCVr-omKgWSMtsnZlEps8cetju0tiXN9ysNk&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 5999,
   },
   {
     id: 1003,
@@ -37,7 +37,7 @@ const listProducts = [
       "https://m.media-amazon.com/images/I/61ZvnbbbfdL._AC_UF894,1000_QL80_.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 9999,
   },
   {
     id: 1004,
@@ -51,7 +51,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAdTKo6TOfY51by5TGHCj7pQhlq7kpguoPHQ&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 8999,
   },
   {
     id: 1005,
@@ -64,7 +64,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToLtZNuCiWSCZQKw3JwAHP1gJJYRnvkZZbwwt5k2Xx5H-uAxsTjsY-EG-i7-AMaQXQZ9c&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 2499,
   },
   {
     id: 1006,
@@ -91,7 +91,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQukLij0hFUkDdh7kL6qSbAg3LZDU6FhurZY4zMOrKtped6ngL2DP2atpgps-J5wUH14nE&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 3999,
   },
   {
     id: 1008,
@@ -105,7 +105,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgutQ9hONo_tlf35fKVWekPtpe6So7_ZQkAQ&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 11999,
   },
   {
     id: 1009,
@@ -119,7 +119,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR966ukW5XMpLHIumMLi4nm7EY4hDBGsUoyweB7nrm-Ekdt-Yu4qd24RRGjcayOoWI9t8M&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 10999,
   },
   {
     id: 1010,
@@ -133,7 +133,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2V7bPq6p1pc6rF60QLgDijfnxQ7miOl-dbA&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 13999,
   },
   {
     id: 1011,
@@ -147,7 +147,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBb2SxlbTpsJu8mwlsaXgSQ3G67Q0Xvkge3SKjS1ls1z60U7P_eZYlrjOuGImbs4H4SA&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 2450,
   },
   {
     id: 1012,
@@ -161,7 +161,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjefDsnxwZ9Qo0SrJjuqgg8QoluCHClGsQbg&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 6500,
   },
   {
     id: 1013,
@@ -175,7 +175,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmxJb6oAkmTgwLvcLNYd4PMCTn7uhFCDCXLA&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 7800,
   },
   {
     id: 1014,
@@ -189,7 +189,7 @@ const listProducts = [
       "https://http2.mlstatic.com/D_NQ_NP_703800-MLA54247359908_032023-V.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 12500,
   },
   {
     id: 1015,
@@ -203,7 +203,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhwSQ9b8W3pOuVgkOVjvL_ZSLwqYQ98Bjohw&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 9999,
   },
   {
     id: 1016,
@@ -217,7 +217,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXQLoa_XoNmD4QSd2Kmcl1GiZvmc3gg2hlTg&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 15000,
   },
   {
     id: 1017,
@@ -231,7 +231,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRjKJsxEhdYtYWhOEtNi-cYaW8N99teDlBg&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 11500,
   },
   {
     id: 1018,
@@ -245,7 +245,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKDrpKZV6_P8jdgZjOo9XKWtT0ZXDjJxJaQltROFXyK6ztfDvcjgCTOZw-RJdA-FdrM0s&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 25000,
   },
   {
     id: 1019,
@@ -259,7 +259,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5jpLt0GenWLIpepse1tjxM_atxc3miftIrx4uOI8_bNoF42QG9C66LI6ckZyhP6K3Hik&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 5999,
   },
   {
     id: 1020,
@@ -273,7 +273,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-J0in6rk2JZGfsAfqeCaieQoLajlEksZo5w&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 6500,
   },
   {
     id: 1021,
@@ -286,7 +286,7 @@ const listProducts = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr41Sj8y6e5JEzLS2rkJigBswC2p2IubFeOQ&usqp=CAU",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 8800,
   },
   {
     id: 1022,
@@ -299,7 +299,7 @@ const listProducts = [
     image: "https://https://m.media-amazon.com/images/I/81owpGnSI-L.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 19999,
   },
   {
     id: 1023,
@@ -312,7 +312,7 @@ const listProducts = [
     image: "https://i.blogs.es/f83a2b/millennium-falcon-lego-7/840_560.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 26999,
   },
   {
     id: 1024,
@@ -325,7 +325,7 @@ const listProducts = [
     image: "https://i.ytimg.com/vi/oPGv5t_FbWA/maxresdefault.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 39999,
   },
   {
     id: 1025,
@@ -338,7 +338,7 @@ const listProducts = [
     image: "https://m.media-amazon.com/images/I/71291zjlclL.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 21999,
   },
   {
     id: 1026,
@@ -352,7 +352,7 @@ const listProducts = [
       "https://http2.mlstatic.com/D_NQ_NP_806194-MCO32633177538_102019-O.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 11999,
   },
   {
     id: 1027,
@@ -366,7 +366,7 @@ const listProducts = [
       "https://http2.mlstatic.com/D_NQ_NP_754681-MCO47370126094_092021-O.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 61999,
   },
   {
     id: 1028,
@@ -380,7 +380,7 @@ const listProducts = [
       "https://http2.mlstatic.com/D_NQ_NP_948211-MCO47037555465_082021-O.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 7500,
   },
   {
     id: 1029,
@@ -393,7 +393,7 @@ const listProducts = [
     image: "https://m.media-amazon.com/images/I/91LtElVE2dL.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 23000,
   },
   {
     id: 1030,
@@ -407,7 +407,7 @@ const listProducts = [
       "https://falabella.scene7.com/is/image/FalabellaCO/1937942_3?wid=800&hei=800&qlt=70",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 5999,
   },
   {
     id: 1031,
@@ -420,7 +420,7 @@ const listProducts = [
     image: "https://m.media-amazon.com/images/I/81UmTje59DL._AC_SL1500_.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 41999,
   },
   {
     id: 1032,
@@ -434,7 +434,7 @@ const listProducts = [
       "https://i5.walmartimages.ca/images/Thumbnails/336/389/6000203336389.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 8999,
   },
   {
     id: 1033,
@@ -447,7 +447,7 @@ const listProducts = [
     image: "https://m.media-amazon.com/images/I/8175bmbrKNL.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 36000,
   },
   {
     id: 1034,
@@ -461,7 +461,7 @@ const listProducts = [
       "https://http2.mlstatic.com/D_NQ_NP_639612-MCO43818539402_102020-O.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 22999,
   },
   {
     id: 1035,
@@ -475,7 +475,7 @@ const listProducts = [
       "https://media.kohlsimg.com/is/image/kohls/5831685?wid=600&hei=600&op_sharpen=1",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 20999,
   },
   {
     id: 1036,
@@ -488,7 +488,7 @@ const listProducts = [
     image: "https://m.media-amazon.com/images/I/51pu4wj05wL._AC_.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 18999,
   },
   {
     id: 1037,
@@ -502,7 +502,7 @@ const listProducts = [
       "https://m.media-amazon.com/images/I/71CWlK5TaLL._AC_UF894,1000_QL80_.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 62000,
   },
   {
     id: 1038,
@@ -516,7 +516,7 @@ const listProducts = [
       "https://http2.mlstatic.com/D_NQ_NP_855796-MCO47784765179_102021-O.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 85000,
   },
   {
     id: 1039,
@@ -530,7 +530,7 @@ const listProducts = [
       "https://m.media-amazon.com/images/I/71o1dhAdiOL._AC_UF894,1000_QL80_.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 31999,
   },
   {
     id: 1040,
@@ -543,7 +543,7 @@ const listProducts = [
     image: "https://image.smythstoys.com/original/desktop/167082.jpg",
     product_status: true,
     quantity: 2000,
-    price: 1999,
+    price: 34000,
   },
 ];
 
