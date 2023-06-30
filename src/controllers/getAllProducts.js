@@ -17,6 +17,16 @@ const {
   getProductsByStatus,
   getProductsByCategory,
   getProductByCategoryAndStatus,
+  getProductByAge,
+  getProductByPrice,
+  getProductByCategoryAndBrand,
+  getProductByCategoryBrandAgeAndPrice,
+  getProductByCategoryBrandAndAge,
+  getProductByCategoryAndMinimunAge,
+  getProductByCategoryAndPrice,
+  getProductByBrandAndMinimunAge,
+  getProductByBrandAndPrice,
+  getProductByPriceAndMinimunAge,
 } = require("../helpers/productshelps.js");
 
 // -----------xxxx-------------------------
@@ -36,14 +46,116 @@ const getById = async (req, res, next) => {
   }
 };
 
+
 // -----------xxxx-------------------------
 // Traigo todos los productos o si hay parametros x producto x categoria/marca/nombre y/o status de mi base de datos
 
 const getProductsByProperties = async (req, res, next) => {
-  const { name, brand, category, status } = req.query;
+  const { name, brand, category, status, minimun_age, price } = req.query;
+  // const { name, brand, category, status, minimun_age, price } = req.body;
   console.log("este es el query :", req.query);
 
   try {
+    if (category && brand && minimun_age && price ) {
+      let products = await getProductByCategoryBrandAgeAndPrice(category, brand, minimun_age, price);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the brand and category and age and price required",
+          });
+    }
+    if (category && brand && minimun_age ) {
+      let products = await getProductByCategoryBrandAndAge(category, brand, minimun_age);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the brand and category and age required",
+          });
+    }
+    if (category && brand ) {
+        let products = await getProductByCategoryAndBrand(category, brand);
+        return products.length > 0
+          ? res.status(200).json(products)
+          : res.status(404).json({
+              message: "there is no product with the brand and category required",
+            });
+      }
+
+    if (category && price ) {
+      let products = await getProductByCategoryAndPrice(category, price);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the brand and price required",
+          });
+    }
+
+    if (price && minimun_age ) {
+      let products = await getProductByPriceAndMinimunAge(price, minimun_age);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the price and age required",
+          });
+    }
+
+    if (category && minimun_age ) {
+      let products = await getProductByCategoryAndMinimunAge(category, minimun_age);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the brand and category required",
+          });
+    }
+
+    if (brand && minimun_age ) {
+      let products = await getProductByBrandAndMinimunAge(brand, minimun_age);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the brand and age required",
+          });
+    }
+
+    if (brand && price ) {
+      let products = await getProductByBrandAndPrice(brand, price);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({
+            message: "there is no product with the brand and price required",
+          });
+    }
+
+    if (brand) {
+        let products = await getProductByBrand(brand);
+        return products.length > 0
+          ? res.status(200).json(products)
+          : res.status(404).json({ message: "Brand not found" });
+      }
+    if (category) {
+        let products = await getProductsByCategory(category);
+        return products.length > 0
+          ? res.status(200).json(products)
+          : res.status(404).json({ message: "Category not found" });
+      }
+    if (name) {
+        let products = await getProductByName(name);
+        return products.length > 0
+          ? res.status(200).json(products)
+          : res.status(404).json({ message: "Name not found" });
+      }
+    if (minimun_age) {
+      let products = await getProductByAge(minimun_age);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({ message: "Age not found" });
+    }
+    if (price) {
+      let products = await getProductByPrice(price);
+      return products.length > 0
+        ? res.status(200).json(products)
+        : res.status(404).json({ message: "Price not found" });
+    }
     if (category & status) {
       if (typeof status !== "boolean") {
         console.log("este es typeof status: ", typeof status);
@@ -82,24 +194,6 @@ const getProductsByProperties = async (req, res, next) => {
         : res.status(404).json({
             message: "there is no product with the brand required",
           });
-    }
-    if (category) {
-      let products = await getProductsByCategory(category);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Category not found" });
-    }
-    if (name) {
-      let products = await getProductByName(name);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Name not found" });
-    }
-    if (brand) {
-      let products = await getProductByBrand(brand);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Brand not found" });
     }
     if (status) {
       if (typeof status !== "boolean") {
