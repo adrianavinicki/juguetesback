@@ -5,7 +5,7 @@ const router = Router();
 const getProducts = require("./productsRouter");
 const userRouter = require("./userRouter");
 const detailOrdersRouter = require("./detailOrderRouter");
-const orderRouter = require("./orderRouter");
+const orderRouter = require("./OrderRouter");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use(cors());
