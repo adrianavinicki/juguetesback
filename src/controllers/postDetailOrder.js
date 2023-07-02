@@ -15,7 +15,7 @@ const createDetailOrder = async (req, res, next) => {
     console.log("este esel product:", product);
     if (!user || !product) {
       console.log("User or Product was not find.");
-      return;
+      return res.status(404).json({message: "producto ó usuario no existen"});
     }
 
     const detailOrder = await Detailorder.create({
