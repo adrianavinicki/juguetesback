@@ -44,13 +44,8 @@ const { Product, Detailorder, Order, Payment, Rating, User, Delivery } =
 Product.hasMany(Rating);
 Rating.belongsTo(Product);
 //relacion entre user/rating
-<<<<<<< HEAD
-User.hasMany(Rating, /* { as: "ratings", foreignKey: "id" } */);
-Rating.belongsTo(User, /* { foreignKey: "id" } */);
-=======
 User.hasMany(Rating /*, { as: "ratings", foreignKey: "id" }*/);
 Rating.belongsTo(User /*, { foreignKey: "id" }*/);
->>>>>>> 469e4c227f13761e78b7f4a2b816ac2256480e0d
 // relacion user/productos favoritos
 User.belongsToMany(Product, { through: "favoritos" });
 Product.belongsToMany(User, { through: "favoritos" });

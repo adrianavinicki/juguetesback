@@ -24,13 +24,8 @@ const { conn } = require("./src/db.js");
 require("dotenv").config();
 const { PORT } = process.env;
 //Syncing all the models at once.
-<<<<<<< HEAD
-/* conn.sync({ force: true }).then(async () => { */
-conn.sync({ force: false }).then(async () => {
-=======
   //conn.sync({ force: true }).then(async () => {
   conn.sync({ force: false }).then(async () => {
->>>>>>> 469e4c227f13761e78b7f4a2b816ac2256480e0d
   //lo dejamos en true mientras construimos las bases y cargamos, luego va a false para que no borre lo cargado
   server.listen(PORT, async () => {
   /* loadProductsInDB(); */ // eslint-disable-line no-console
