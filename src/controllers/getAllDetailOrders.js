@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
+const { NUMBER } = require("sequelize");
 const { Detailorder, Product, User } = require("../db");
 const {
   onlyNumbersCheck,
@@ -9,119 +10,210 @@ const {
 } = require("../helpers/validation.js");
 const {
   getDetailOrder,
-  /*getProductByBrandAndStatus,
-  getProductByBrand,
-  getProductByNameAndStatus,
-  getProductByName,
-  getProductsByStatus,
-  getProductsByCategory,
-  getProductByCategoryAndStatus,*/
+  getDetailByStatus,
+  getDetailByProductAndUser,
+  getDetailByProductAndDate,
+  getDetailByProductAndStatus,
+  getDetailByProductAndPrice,
+  getDetailByProductAndQuantity,
+  getDetailByUserAndDate,
+  getDetailByUserAndStatus,
+  getDetailByDateAndStatus,
+  getDetailByOrder,
 } = require("../helpers/detailordershelps");
 
 // -----------xxxx-------------------------
 // Traigo producto x id de mi base de datos
 
-/*const getById = async (req, res, next) => {
+const getById = async (req, res, next) => {
   const { id } = req.params;
   let check = onlyNumbersCheck(id);
   if (check !== true) return res.status(412).json({ message: "Invalid Input" });
   try {
-    const detailProduct = await Product.findByPk(id);
-    detailProduct
-      ? res.status(200).json(detailProduct)
-      : res.status(404).json({ message: "The searched Product is not found" });
+    const detail = await Detailorder.findByPk(id);
+    detail
+      ? res.status(200).json(detail)
+      : res
+          .status(404)
+          .json({ message: "The searched detail order is not found" });
   } catch (error) {
     res.status(404).json(error.message);
   }
-};*/
+};
 
 // -----------xxxx-------------------------
-// Traigo todos los productos o si hay parametros x producto x categoria/marca/nombre y/o status de mi base de datos
+// Traigo todos los details orders o sus propiedades
 
-/*const getDetailOrderByProperties = async (req, res, next) => {
-  const { detail_id, price, quantity, order_detail_date , detail_order_status, productId, userId} = req.query;
+const getDetailOrderByProperties = async (req, res, next) => {
+  const {
+    idDetail,
+    price,
+    quantity,
+    date,
+    status,
+    idProduct,
+    idOrder,
+    idUser,
+  } = req.query;
   console.log("este es el query :", req.query);
 
   try {
-    if (detail_id & detail_order_status) {
-      if (typeof detail_order_status !== "active" || detail_order_status !== "inactive") {
-        console.log("este es typeof status: ", typeof detail_order_status);
+    if (idProduct & idUser) {
+      let check = onlyNumbersCheck(idProduct, idUser);
+      if (check !== true) {
+        console.log("este productId o userId: ", check);
         return res.status(500).json({ message: "Invalid Input" });
       }
-      let detail = await getProductByCategoryAndStatus(
-        category,
-        product_status
-      );
-      return products.length > 0
-        ? res.status(200).json(products)
+      let details = await getDetailByProductAndUser(idProduct, idUser);
+      return details.length > 0
+        ? res.status(200).json(details)
         : res.status(404).json({
-            message: "there is no product with the category required",
+            message:
+              "there is no detail order with the product and user required",
           });
     }
-    if (name & status) {
-      if (typeof status !== "boolean") {
-        console.log("este es typeof status: ", typeof status);
+    if (idProduct & status) {
+      if (status !== "active" || status !== "inactive") {
+        console.log("este es status: ", status);
         return res.status(500).json({ message: "Invalid Input" });
       }
-      let products = await getProductByNameAndStatus(name, product_status);
-      return products.length > 0
-        ? res.status(200).json(products)
+      let details = await getDetailByProductAndStatus(idProduct, status);
+      return details.length > 0
+        ? res.status(200).json(details)
         : res.status(404).json({
-            message: "there is no product with the name required",
+            message:
+              "there is no detail order with the product and status required",
           });
     }
-    if (brand & status) {
-      if (typeof status !== "boolean") {
-        console.log("este es typeof status: ", typeof status);
+    if (idProduct & date) {
+      if (!(date instanceof Date)) {
+        console.log("este es date: ", date);
         return res.status(500).json({ message: "Invalid Input" });
       }
-      let products = await getProductByBrandAndStatus(brand, product_status);
-      return products.length > 0
-        ? res.status(200).json(products)
+      let details = await getDetailByProductAndDate(idProduct, date);
+      return details.length > 0
+        ? res.status(200).json(details)
         : res.status(404).json({
-            message: "there is no product with the brand required",
+            message:
+              "there is no detail order with the product and date required",
           });
     }
-    if (category) {
-      let products = await getProductsByCategory(category);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Category not found" });
+    if (idProduct & price) {
+      let check = onlyNumbersCheck(idProduct, price);
+      if (check !== true) {
+        console.log("este productId o userId: ", check);
+        return res.status(500).json({ message: "Invalid Input" });
+      }
+      let details = await getDetailByProductAndPrice(idProduct, price);
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({
+            message:
+              "there is no detail order with the product and the price required",
+          });
     }
-    if (name) {
-      let products = await getProductByName(name);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Name not found" });
+    if (idProduct & quantity) {
+      let check = onlyNumbersCheck(idProduct, quantity);
+      if (check !== true) {
+        console.log("este productId o userId: ", check);
+        return res.status(500).json({ message: "Invalid Input" });
+      }
+      let details = await getDetailByProductAndQuantity(idProduct, quantity);
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({
+            message:
+              "there is no detail order with the product and the quantity required",
+          });
     }
-    if (brand) {
-      let products = await getProductByBrand(brand);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Brand not found" });
+    if (idUser & date) {
+      if (!(date instanceof Date)) {
+        console.log("este es date: ", date);
+        return res.status(500).json({ message: "Invalid Input" });
+      }
+      let details = await getDetailByUserAndDate(idUser, date);
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({
+            message: "there is no detail order with the user & date required",
+          });
+    }
+    if (idUser & status) {
+      if (status !== "active" || status !== "inactive") {
+        console.log("este es status: ", status);
+        return res.status(500).json({ message: "Invalid Input" });
+      }
+      let details = await getDetailByUserAndStatus(idUser, status);
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({
+            message:
+              "there is no detail order with the user and status required",
+          });
+    }
+    if (date & status) {
+      if (
+        !(date instanceof Date) ||
+        status !== "active" ||
+        status !== "inactive"
+      ) {
+        console.log("este es date: ", date);
+        console.log("este es status: ", status);
+        return res.status(500).json({ message: "Invalid Input" });
+      }
+      let details = await getDetailByDateAndStatus(idUser, status);
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({
+            message: "there is no detail order with the date & status required",
+          });
     }
     if (status) {
-      if (typeof status !== "boolean") {
-        console.log("este es typeof status 2: ", typeof status);
+      if (status !== "active" || status !== "inactive") {
+        console.log("este es  status: ", status);
         return res.status(500).json({ message: "Invalid Input" });
       }
-      let products = await getProductsByStatus(product_status);
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Products not found" });
+      let detail = await getDetailByStatus(status);
+      return detail.length > 0
+        ? res.status(200).json(detail)
+        : res.status(404).json({
+            message: "there is no detail order with the status required",
+          });
     }
-    if (!name && !brand && !category && !status) {
-      let products = await getProducts();
-      return products.length > 0
-        ? res.status(200).json(products)
-        : res.status(404).json({ message: "Products not found" });
+    if (idOrder) {
+      let check = onlyNumbersCheck(idOrder);
+      if (check !== true) {
+        console.log("este idOrder: ", check);
+        return res.status(500).json({ message: "Invalid Input" });
+      }
+      let details = await getDetailByOrder(idOrder);
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({
+            message: "there is no detail order with order id required",
+          });
+    }
+    if (
+      !idDetail &&
+      !price &&
+      !quantity &&
+      !date &&
+      !status &&
+      !idProduct &&
+      !idOrder &&
+      !idUser
+    ) {
+      let details = await getDetailOrder();
+      return details.length > 0
+        ? res.status(200).json(details)
+        : res.status(404).json({ message: "Details orders not found" });
     }
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-};*/
+};
 
 module.exports = {
-  /*getById, getDetailOrdersByProperties,*/
-  getDetailOrder,
+  getById,
+  getDetailOrderByProperties,
 };
