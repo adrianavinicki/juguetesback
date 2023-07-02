@@ -47,11 +47,46 @@ const getById = async (req, res, next) => {
 };
 
 
+const getAllProducts = async (req,res) => {
+
+  const pageNumber = req.query.pageNumber || 1;
+  const pageSize = req.query.pageSize || 5;
+
+  try {
+    const offset = (pageNumber - 1) * pageSize;
+
+    const datos = await Product.findAll({
+      limit: pageSize,
+      offset: offset,
+    });
+
+    const totalElements = await Product.count();
+
+    const totalPages = Math.ceil(totalElements / pageSize);
+
+    res.status(200).json({
+      data: datos,
+      totalElements: totalElements,
+      totalPages: totalPages,
+      currentPage: pageNumber,
+    })
+
+  } catch (error) {
+    console.error('Error al obtener los datos paginados:', error);
+    res.status(500).json({ error: 'Error al obtener los datos paginados' });
+  
+  }
+
+}
+
+
 // -----------xxxx-------------------------
 // Traigo todos los productos o si hay parametros x producto x categoria/marca/nombre y/o status de mi base de datos
 
 const getProductsByProperties = async (req, res, next) => {
   const { name, brand, category, status, minimun_age, price } = req.query;
+  const pageNumber = req.query.pageNumber || 1;
+  const pageSize = req.query.pageSize || 5; 
   // const { name, brand, category, status, minimun_age, price } = req.body;
   console.log("este es el query :", req.query);
 
@@ -205,10 +240,26 @@ const getProductsByProperties = async (req, res, next) => {
         ? res.status(200).json(products)
         : res.status(404).json({ message: "Products not found" });
     }
-    if (!name && !brand && !category && !status) {
-      let products = await getProducts();
-      return products.length > 0
-        ? res.status(200).json(products)
+    if (!name && !brand && !category && !status && !minimun_age && !price) {
+
+          const offset = (pageNumber - 1) * pageSize;
+
+          const datos = await Product.findAll({
+            limit: pageSize,
+            offset: offset,
+          });
+
+          const totalElements = await Product.count();
+
+          const totalPages = Math.ceil(totalElements / pageSize);
+
+      return results.length > 0
+        ? res.status(200).json({
+            data: datos,
+            totalElements: totalElements,
+            totalPages: totalPages,
+            currentPage: pageNumber,
+          })
         : res.status(404).json({ message: "Products not found" });
     }
   } catch (error) {
@@ -216,4 +267,4 @@ const getProductsByProperties = async (req, res, next) => {
   }
 };
 
-module.exports = { getById, getProductsByProperties };
+module.exports = { getById, getProductsByProperties, getAllProducts };
