@@ -47,37 +47,37 @@ const getById = async (req, res, next) => {
 };
 
 
-const getAllProducts = async (req,res) => {
+// const getAllProducts = async (req,res) => {
 
-  const pageNumber = req.query.pageNumber || 1;
-  const pageSize = req.query.pageSize || 5;
+//   const pageNumber = req.query.pageNumber || 1;
+//   const pageSize = req.query.pageSize || 10;
 
-  try {
-    const offset = (pageNumber - 1) * pageSize;
+//   try {
+//     const offset = (pageNumber - 1) * pageSize;
 
-    const datos = await Product.findAll({
-      limit: pageSize,
-      offset: offset,
-    });
+//     const datos = await Product.findAll({
+//       limit: pageSize,
+//       offset: offset,
+//     });
 
-    const totalElements = await Product.count();
+//     const totalElements = await Product.count();
 
-    const totalPages = Math.ceil(totalElements / pageSize);
+//     const totalPages = Math.ceil(totalElements / pageSize);
 
-    res.status(200).json({
-      data: datos,
-      totalElements: totalElements,
-      totalPages: totalPages,
-      currentPage: pageNumber,
-    })
+//     res.status(200).json({
+//       data: datos,
+//       totalElements: totalElements,
+//       totalPages: totalPages,
+//       currentPage: pageNumber,
+//     })
 
-  } catch (error) {
-    console.error('Error al obtener los datos paginados:', error);
-    res.status(500).json({ error: 'Error al obtener los datos paginados' });
+//   } catch (error) {
+//     console.error('Error al obtener los datos paginados:', error);
+//     res.status(500).json({ error: 'Error al obtener los datos paginados' });
   
-  }
+//   }
 
-}
+// }
 
 
 // -----------xxxx-------------------------
@@ -86,7 +86,7 @@ const getAllProducts = async (req,res) => {
 const getProductsByProperties = async (req, res, next) => {
   const { name, brand, category, status, minimun_age, price } = req.query;
   const pageNumber = req.query.pageNumber || 1;
-  const pageSize = req.query.pageSize || 5; 
+  const pageSize = req.query.pageSize || 10; 
   // const { name, brand, category, status, minimun_age, price } = req.body;
   console.log("este es el query :", req.query);
 
@@ -108,9 +108,21 @@ const getProductsByProperties = async (req, res, next) => {
           });
     }
     if (category && brand ) {
-        let products = await getProductByCategoryAndBrand(category, brand);
-        return products.length > 0
-          ? res.status(200).json(products)
+      const offset = (pageNumber - 1) * pageSize;
+
+      const datos = await getProductByCategoryAndBrand(category, brand, {
+        limit: pageSize,
+        offset: offset,
+      });
+      const totalElements = await Product.count();
+      const totalPages = Math.ceil(totalElements / pageSize);
+      return datos.length > 0
+        ? res.status(200).json({
+          payload: datos,
+          totalElements: totalElements,
+          totalPages: totalPages,
+          currentPage: pageNumber,
+        })
           : res.status(404).json({
               message: "there is no product with the brand and category required",
             });
@@ -162,15 +174,40 @@ const getProductsByProperties = async (req, res, next) => {
     }
 
     if (brand) {
-        let products = await getProductByBrand(brand);
-        return products.length > 0
-          ? res.status(200).json(products)
+        //let products = await getProductByBrand(brand);
+        const offset = (pageNumber - 1) * pageSize;
+
+        const datos = await getProductByBrand(brand,{
+          limit: pageSize,
+          offset: offset,
+        });
+        const totalElements = await Product.count();
+        const totalPages = Math.ceil(totalElements / pageSize);
+        return datos.length > 0
+          ? res.status(200).json({
+            payload: datos,
+            totalElements: totalElements,
+            totalPages: totalPages,
+            currentPage: pageNumber,
+          })
           : res.status(404).json({ message: "Brand not found" });
       }
     if (category) {
-        let products = await getProductsByCategory(category);
-        return products.length > 0
-          ? res.status(200).json(products)
+          const offset = (pageNumber - 1) * pageSize;
+
+          const datos = await getProductsByCategory(category,{
+            limit: pageSize,
+            offset: offset,
+          });
+          const totalElements = await Product.count();
+          const totalPages = Math.ceil(totalElements / pageSize);
+          return datos.length > 0
+            ? res.status(200).json({
+              payload: datos,
+              totalElements: totalElements,
+              totalPages: totalPages,
+              currentPage: pageNumber,
+            })
           : res.status(404).json({ message: "Category not found" });
       }
     if (name) {
@@ -180,15 +217,39 @@ const getProductsByProperties = async (req, res, next) => {
           : res.status(404).json({ message: "Name not found" });
       }
     if (minimun_age) {
-      let products = await getProductByAge(minimun_age);
-      return products.length > 0
-        ? res.status(200).json(products)
+      const offset = (pageNumber - 1) * pageSize;
+
+      const datos = await getProductByAge(minimun_age,{
+        limit: pageSize,
+        offset: offset,
+      });
+      const totalElements = await Product.count();
+      const totalPages = Math.ceil(totalElements / pageSize);
+      return datos.length > 0
+        ? res.status(200).json({
+          payload: datos,
+          totalElements: totalElements,
+          totalPages: totalPages,
+          currentPage: pageNumber,
+        })
         : res.status(404).json({ message: "Age not found" });
     }
     if (price) {
-      let products = await getProductByPrice(price);
-      return products.length > 0
-        ? res.status(200).json(products)
+      const offset = (pageNumber - 1) * pageSize;
+
+      const datos = await getProductByPrice(price,{
+        limit: pageSize,
+        offset: offset,
+      });
+      const totalElements = await Product.count();
+      const totalPages = Math.ceil(totalElements / pageSize);
+      return datos.length > 0
+        ? res.status(200).json({
+          payload: datos,
+          totalElements: totalElements,
+          totalPages: totalPages,
+          currentPage: pageNumber,
+        })
         : res.status(404).json({ message: "Price not found" });
     }
     if (category & status) {
@@ -242,29 +303,30 @@ const getProductsByProperties = async (req, res, next) => {
     }
     if (!name && !brand && !category && !status && !minimun_age && !price) {
 
-          const offset = (pageNumber - 1) * pageSize;
+      try {
+        const offset = (pageNumber - 1) * pageSize;
 
-          const datos = await Product.findAll({
-            limit: pageSize,
-            offset: offset,
-          });
-
-          const totalElements = await Product.count();
-
-          const totalPages = Math.ceil(totalElements / pageSize);
-
-      return results.length > 0
-        ? res.status(200).json({
-            data: datos,
-            totalElements: totalElements,
-            totalPages: totalPages,
-            currentPage: pageNumber,
-          })
-        : res.status(404).json({ message: "Products not found" });
+        const datos = await Product.findAll({
+          limit: pageSize,
+          offset: offset,
+        });
+        const totalElements = await Product.count();
+        const totalPages = Math.ceil(totalElements / pageSize);
+        res.status(200).json({
+          payload: datos,
+          totalElements: totalElements,
+          totalPages: totalPages,
+          currentPage: pageNumber,
+        })
+      } catch (error) {
+        console.error('error al obtener los datos paginados:', error);
+        res.status(500).json({ error: 'error al obtener los datos paginados'})
+        
+      }
     }
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
 };
 
-module.exports = { getById, getProductsByProperties, getAllProducts };
+module.exports = { getById, getProductsByProperties };
