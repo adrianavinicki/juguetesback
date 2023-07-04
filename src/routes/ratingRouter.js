@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Rating, Movie, User } = require("../db.js");
+const { Rating, Product, User } = require("../db.js");
 const router = Router();
 
 router.get("/", async (req, res, next) => {
@@ -15,7 +15,7 @@ router.get("/", async (req, res, next) => {
           },
           {
             model: User,
-            attributes: ["name", "email"],
+            attributes: ["first_name", "email"],
           },
         ],
       });
@@ -24,7 +24,7 @@ router.get("/", async (req, res, next) => {
         productId: rating.productId,
         rate: rating.rate,
         review: rating.review,
-        user: rating.User,
+        userId: rating.UserId,
       };
       if (result) {
         res.json(result);
@@ -44,7 +44,7 @@ router.get("/", async (req, res, next) => {
           },
           {
             model: User,
-            attributes: ["name", "email"],
+            attributes: ["first_name", "email"],
           },
         ],
       });
@@ -54,7 +54,7 @@ router.get("/", async (req, res, next) => {
           productId: rating.productId,
           rate: rating.rate,
           review: rating.review,
-          user: rating.User,
+          userId: rating.userId,
         };
       });
       res.json(result);
@@ -79,7 +79,7 @@ router.get("/:product_id", async (req, res, next) => {
         },
         {
           model: User,
-          attributes: ["name", "email"],
+          attributes: ["first_name", "id"],
         },
       ],
     });
@@ -89,7 +89,7 @@ router.get("/:product_id", async (req, res, next) => {
         productId: rating.productId,
         rate: rating.rate,
         review: rating.review,
-        user: rating.User,
+        userId: rating.User,
       };
     });
     if (result) {
@@ -100,17 +100,17 @@ router.get("/:product_id", async (req, res, next) => {
   } catch (e) {
     next(e);
   }
-});
+}); 
 
 router.post("/create", async (req, res, next) => {
   if (!req.body) res.send("The form is empty");
 
   try {
-    const { rate, review, productId, userId } = req.body;
+    const { rate, review, productId, id } = req.body;
 
     const user = await User.findOne({
       where: {
-        userId,
+        id,
       },
     });
 
@@ -134,7 +134,7 @@ router.post("/create", async (req, res, next) => {
   }
 });
 
-router.put("/update/:id", async (req, res, next) => {
+/* router.put("/update/:id", async (req, res, next) => {
   const { id } = req.params;
 
   if (!req.body) res.send("The form is empty");
@@ -183,6 +183,6 @@ router.delete("/delete/:id", async (req, res, next) => {
   } catch (e) {
     next(e);
   }
-});
+}); */
 
 module.exports = router;
