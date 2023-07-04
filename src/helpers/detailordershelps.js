@@ -2,12 +2,9 @@ const { Detailorder, Product, User } = require("../db");
 const { Op } = require("sequelize");
 
 const getDetailOrder = async () => {
-  return await Detailorder.findAll(/*{
-    include: [
-      { model: Product, required: id },
-      { model: User, required: id },
-    ],
-  }*/);
+  return await Detailorder.findAll({
+    include: [{ model: Product }, { model: User }],
+  });
 };
 
 const getDetailByStatus = async (status) => {
