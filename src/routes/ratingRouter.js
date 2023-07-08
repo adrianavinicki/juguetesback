@@ -64,13 +64,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:product_id", async (req, res, next) => {
-  const { id } = req.params;
+router.get("/:productId", async (req, res, next) => {
+  const { productId } = req.params;
 
   try {
     const rating = await Rating.findAll({
       where: {
-        id,
+        productId,
       },
       include: [
         {
