@@ -54,10 +54,16 @@ const createOrder = async (req, res, next) => {
       userId: userId,
       // Asignar el ID del usuario a la orden
     });
+    // Asignar el ID del usuario a la orden
+    await newOrder.setUser(userId);
     await Promise.all(
       detailorders.map((detailorder) => detailorder.setOrder(newOrder))
     );
-
+    // Agregar el ID de la orden al usuario
+    const user = await User.findByPk(userId);
+    if (user) {
+      await user.addOrder(newOrder);
+    }
     return res.status(200).json({ message: "Order created", order: newOrder });
   } catch (error) {
     console.error("Order was not created", error);
