@@ -94,7 +94,7 @@ const getProducts2 = async (req, res) => {
     } = req.query;
   
     let offset = 0;
-    let limit = 5;
+    let limit = 10;
   
     if(pageNumber) {
       pageNumber = parseInt(pageNumber);
