@@ -4,6 +4,7 @@ const {
   getById,
   getProductsByProperties,
   getAllProducts,
+  getProducts2,
 } = require("../controllers/getAllProducts.js");
 const { postNewProduct } = require("../controllers/postProducts.js");
 const {
@@ -26,7 +27,7 @@ const upload = multer({ storage: storageCloud });
 const router = Router();
 
 router.get("/:id", getById);
-router.get("/", getProductsByProperties);
+router.get("/", getProducts2);
 router.post("/create", upload.single('image'), postNewProduct);
 router.put("/update/:id", putProduct);
 router.put("/statusupdate/:id", newStatusProduct);
