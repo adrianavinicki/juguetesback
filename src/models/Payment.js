@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
         allowNull: true,
       },
       id_payment: {
-        type: DataTypes.BIGINT,
+        type: DataTypes.STRING,
         allowNull: true,
       },
       authorization_code: {

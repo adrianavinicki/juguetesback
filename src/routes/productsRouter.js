@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const delProduct = require("../controllers/delProduct")
 const {
   getById,
   getProductsByProperties,
@@ -29,6 +30,7 @@ router.get("/", getProductsByProperties);
 router.post("/create", upload.single('image'), postNewProduct);
 router.put("/update/:id", putProduct);
 router.put("/statusupdate/:id", newStatusProduct);
+router.delete("/delete/:id", delProduct.deleteProduct);
 
 module.exports = router;
 
