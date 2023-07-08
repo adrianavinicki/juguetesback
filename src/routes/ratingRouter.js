@@ -15,7 +15,7 @@ router.get("/", async (req, res, next) => {
           },
           {
             model: User,
-            attributes: ["first_name", "id"],
+            attributes: ["first_name", "email"],
           },
         ],
       });
@@ -44,7 +44,7 @@ router.get("/", async (req, res, next) => {
           },
           {
             model: User,
-            attributes: ["first_name", "id"],
+            attributes: ["first_name", "email"],
           },
         ],
       });
@@ -134,17 +134,17 @@ router.post("/create", async (req, res, next) => {
   }
 });
 
-/* router.put("/update/:id", async (req, res, next) => {
-  const { id } = req.params;
+router.put("/update/:rating_id", async (req, res, next) => {
+  const { rating_id } = req.params;
 
   if (!req.body) res.send("The form is empty");
 
   try {
-    const { productId, email, rate, review } = req.body;
-    const rating = await Rating.findByPk(parseInt(id));
+    const { productId, id, rate, review } = req.body;
+    const rating = await Rating.findByPk(parseInt(rating_id));
     const user = await User.findOne({
       where: {
-        email,
+        id,
       },
     });
     if (rating) {
@@ -183,6 +183,7 @@ router.delete("/delete/:id", async (req, res, next) => {
   } catch (e) {
     next(e);
   }
-}); */
+}); 
 
 module.exports = router;
+
