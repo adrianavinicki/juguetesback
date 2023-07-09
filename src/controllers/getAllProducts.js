@@ -90,7 +90,8 @@ const getProducts2 = async (req, res) => {
       minimun_age,
       price,
       pageNumber,
-      order
+      order,
+      status
     } = req.query;
   
     let offset = 0;
@@ -111,6 +112,7 @@ const getProducts2 = async (req, res) => {
     if(brand) filters.brand = brand;
     if(name) filters.name = {[Op.iLike]: `%${name}%`};
     if(minimun_age) filters.minimun_age = {[Op.gte]: minimun_age}
+    status? filters.product_status = status : filters.product_status = true
   
     const orderCriteria = order === 'higher' ? [['price', 'DESC']] : [['price', 'ASC']];
     const orderOption = order ? { order: orderCriteria } : {};
@@ -122,6 +124,8 @@ const getProducts2 = async (req, res) => {
       offset,
     });
     
+    //if(!rows.length) return res.status(404).json({error:'no hay juguetes'});
+
     res.status(200).json({
       data:rows,
       totalElements:count,
