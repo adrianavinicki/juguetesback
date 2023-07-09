@@ -26,9 +26,9 @@ const createDetailOrder = async (req, res, next) => {
       userId, // Relacionar la detailorder con el usuario
       productId, // Relacionar la detailorder con el producto
     });
-
+ //podriamos mandar un array de las ids de las detail orders al front y estas se guarden en un estado global
     console.log("Detailorder creada:", detailOrder);
-    res.status(200).json({ message: "Detail Order created" });
+    res.status(200).json({ message: "Detail Order created", id: detailOrder.detail_id });
   } catch (error) {
     console.log("Error al crear la detailorder:", error);
     next(error);
