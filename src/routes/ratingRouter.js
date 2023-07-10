@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { Rating, Product, User } = require("../db.js");
 const router = Router();
 
+
 router.get("/", async (req, res, next) => {
   const { rating_id } = req.query;
 
@@ -102,6 +103,38 @@ router.get("/:product_id", async (req, res, next) => {
   }
 }); 
 
+// router.post("/create", async (req, res, next) => {
+//   if (!req.body) res.send("The form is empty");
+
+//   try {
+//     const { rate, review, productId, id } = req.body;
+
+//     const user = await User.findOne({
+//       where: {
+//         id,
+//       },
+//     });
+
+//     const rating = await Rating.create({
+//       rate: parseInt(rate),
+//       review,
+//       productId: parseInt(productId),
+//       id: user.id,
+//     });
+
+//     const result = {
+//       id: rating.id,
+//       productId: rating.productId,
+//       rate: rating.rate,
+//       review: rating.review,
+//     };
+
+//     res.json(result);
+//   } catch (e) {
+//     next(e);
+//   }
+// });
+
 router.post("/create", async (req, res, next) => {
   if (!req.body) res.send("The form is empty");
 
@@ -133,6 +166,7 @@ router.post("/create", async (req, res, next) => {
     next(e);
   }
 });
+
 
 /* router.put("/update/:id", async (req, res, next) => {
   const { id } = req.params;

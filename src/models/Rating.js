@@ -21,6 +21,10 @@ module.exports = (sequelize) => {
       review: {
         type: DataTypes.TEXT,
       },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       timestamps: false,
