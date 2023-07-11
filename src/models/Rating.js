@@ -2,19 +2,29 @@ const { DataTypes } = require("sequelize");
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
-  // defino el modelo
   sequelize.define(
     "rating",
     {
-      stars: {
+      rating_id: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      rate: {
+        type: DataTypes.INTEGER,
+        validate: {
+          isInt: true,
+          min: 1,
+          max: 5,
+        },
       },
       review: {
         type: DataTypes.TEXT,
-        allowNull: true,
       },
-     
+    },
+    {
+      timestamps: false,
     }
   );
 };
+

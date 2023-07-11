@@ -4,24 +4,60 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 const { Detailorder, Product, User } = require("../db");
 
 const createDetailOrder = async (req, res, next) => {
-  // Obtener el usuario que creó la detailorder
-  //const userId = User.id;
+  const detailOrders = req.body;
 
-  // Obtener el producto relacionado
-  //const productId = Product.id;
-  const { price, quantity, productId, userId } = req.body;
+  try {
+    const createdDetailOrders = [];
+
+    for (const detail of detailOrders) {
+      const { quantity, productId, userId } = detail;
+
+      const user = await User.findByPk(userId);
+      const product = await Product.findByPk(productId);
+
+      if (!user || !product) {
+        console.log("User or Product was not found.");
+        return res
+          .status(404)
+          .json({ message: "User or Product was not found" });
+      }
+
+      const createdDetailOrder = await Detailorder.create({
+        price: product.price,
+        quantity,
+        order_detail_date: new Date(),
+        detail_order_status: "active",
+        userId,
+        productId,
+      });
+
+      createdDetailOrders.push(createdDetailOrder.detail_id);
+    }
+
+    console.log("Detail Orders created:", createdDetailOrders);
+    res.status(200).json({
+      message: "Detail Orders created",
+      detailOrders: createdDetailOrders,
+    });
+  } catch (error) {
+    console.log("Error al crear los Detail Orders:", error);
+    next(error);
+  }
+};
+
+/*const createDetailOrder = async (req, res, next) => {
+  const { quantity, productId, userId } = req.body;
 
   // Crear la detailorder
 
-  //async function createDetailOrder() {
   try {
     const user = await User.findByPk(userId);
     console.log("este esel usuario:", user);
     const product = await Product.findByPk(productId);
     console.log("este esel product:", product);
     if (!user || !product) {
-      console.log("No se encontró el usuario o el producto.");
-      return;
+      console.log("User or Product was not find.");
+      return res.status(404).json({message: "producto ó usuario no existen"});
     }
 
     const detailOrder = await Detailorder.create({
@@ -29,17 +65,17 @@ const createDetailOrder = async (req, res, next) => {
       quantity,
       order_detail_date: new Date(),
       detail_order_status: "active",
-      userId: user.id, // Relacionar la detailorder con el usuario
-      productId: product.id, // Relacionar la detailorder con el producto
+      userId, // Relacionar la detailorder con el usuario
+      productId, // Relacionar la detailorder con el producto
     });
-
+ //podriamos mandar un array de las ids de las detail orders al front y estas se guarden en un estado global
     console.log("Detailorder creada:", detailOrder);
-    res.status(200).json({ message: "Detail Order created" });
+    res.status(200).json({ message: "Detail Order created", id: detailOrder.detail_id });
   } catch (error) {
     console.log("Error al crear la detailorder:", error);
     next(error);
   }
-};
+};*/
 
 module.exports = {
   createDetailOrder,

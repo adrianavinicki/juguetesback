@@ -24,11 +24,11 @@ const { conn } = require("./src/db.js");
 require("dotenv").config();
 const { PORT } = process.env;
 //Syncing all the models at once.
-  //conn.sync({ force: true }).then(async () => {
+ // conn.sync({ force: true }).then(async () => {
   conn.sync({ force: false }).then(async () => {
   //lo dejamos en true mientras construimos las bases y cargamos, luego va a false para que no borre lo cargado
   server.listen(PORT, async () => {
-    //loadProductsInDB(); // eslint-disable-line no-console
+   //loadProductsInDB();  // eslint-disable-line no-console
     console.log(`listening at ${PORT}`);
   });
 });
