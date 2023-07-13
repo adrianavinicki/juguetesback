@@ -2,16 +2,16 @@ const { User } = require("../db");
 
 const userFavs = async (req, res, next) => {
   const { id } = req.params;
-  const { product_id, val } = req.body;
+  const { productId, val } = req.body;
 
   try {
     const user = await User.findByPk(id);
     if (user) {
       const aux = user.favProductId;
       if (val) {
-        if (!aux.includes(product_id)) {
+        if (!aux.includes(productId)) {
           const favProduct = await user.update({
-            favProductId: [...aux, product_id],
+            favProductId: [...aux, productId],
           });
           return res.status(200).json(favProduct);
         } else {
@@ -21,9 +21,9 @@ const userFavs = async (req, res, next) => {
           return res.status(200).json(favProduct);
         }
       } else {
-        if (aux.includes(product_id)) {
+        if (aux.includes(productId)) {
           const favProduct = await user.update({
-            favProductId: aux.filter((e) => e !== product_id),
+            favProductId: aux.filter((e) => e !== productId),
           });
           return res.status(200).json(favProduct);
         } else {
