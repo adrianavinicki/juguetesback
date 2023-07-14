@@ -28,6 +28,7 @@ const router = Router();
 
 router.get("/:id", getById);
 router.get("/", getProducts2);
+router.get("/all/products", getAllProducts)
 router.post("/create", upload.single('image'), postNewProduct);
 router.put("/update/:id", putProduct);
 router.put("/statusupdate/:id", newStatusProduct);

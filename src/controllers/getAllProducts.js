@@ -48,37 +48,17 @@ const getById = async (req, res, next) => {
 };
 
 
-// const getAllProducts = async (req,res) => {
+const getAllProducts = async (req,res) => {
 
-//   const pageNumber = req.query.pageNumber || 1;
-//   const pageSize = req.query.pageSize || 5;
+    const response = await getProducts()
 
-//   try {
-//     const offset = (pageNumber - 1) * pageSize;
-
-//     const datos = await Product.findAll({
-//       limit: pageSize,
-//       offset: offset,
-//     });
-
-//     const totalElements = await Product.count();
-
-//     const totalPages = Math.ceil(totalElements / pageSize);
-
-//     res.status(200).json({
-//       data: datos,
-//       totalElements: totalElements,
-//       totalPages: totalPages,
-//       currentPage: pageNumber,
-//     })
-
-//   } catch (error) {
-//     console.error('Error al obtener los datos paginados:', error);
-//     res.status(500).json({ error: 'Error al obtener los datos paginados' });
-  
-//   }
-
-// }
+    try {
+        res.status(200).json(response)
+    } catch(error) {
+        res.status(400).json({ error: error.message })
+    }
+    
+}
 
 const getProducts2 = async (req, res) => {
   try {
@@ -363,6 +343,6 @@ const getProducts2 = async (req, res) => {
 module.exports = {
   getById,
   // getProductsByProperties,
-  // getAllProducts,
+  getAllProducts,
   getProducts2,
 };
