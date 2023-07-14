@@ -38,6 +38,81 @@ const getProductByCategoryAndStatus = async (category, status) => {
   });
 };
 
+const getProductByCategoryAndBrand = async (category, brand) => {
+  return await Product.findAll({
+    where: {
+         category: category,
+         brand: brand,
+    }
+  });
+};
+
+const getProductByCategoryAndMinimunAge = async (category, minimun_age) => {
+  return await Product.findAll({
+    where: {
+         category: category,
+         minimun_age: {[Op.gte]: minimun_age},
+    }
+  });
+};
+
+const getProductByBrandAndMinimunAge = async (brand, minimun_age) => {
+  return await Product.findAll({
+    where: {
+         brand: brand,
+         minimun_age: {[Op.gte]: minimun_age},
+    }
+  });
+};
+
+const getProductByPriceAndMinimunAge = async (price, minimun_age) => {
+  return await Product.findAll({
+    where: {
+         price:{[Op.lte]: price},
+         minimun_age: {[Op.gte]: minimun_age},
+    }
+  });
+};
+
+const getProductByBrandAndPrice = async (brand, price) => {
+  return await Product.findAll({
+    where: {
+         brand: brand,
+         price:{[Op.lte]: price},
+    }
+  });
+};
+
+const getProductByCategoryAndPrice = async (category, price) => {
+  return await Product.findAll({
+    where: {
+         category: category,
+         price:{[Op.lte]: price},
+    }
+  });
+};
+
+const getProductByCategoryBrandAndAge = async (category, brand, minimun_age) => {
+  return await Product.findAll({
+    where: {
+         category: category,
+         brand: brand,
+         minimun_age: {[Op.gte]: minimun_age},
+    }
+  });
+};
+
+const getProductByCategoryBrandAgeAndPrice = async (category, brand, minimun_age, price) => {
+  return await Product.findAll({
+    where: {
+         category: category,
+         brand: brand,
+         minimun_age: {[Op.gte]: minimun_age},
+         price: {[Op.lte]: price},
+    }
+  });
+};
+
 const getProductByName = async (name) => {
   return await Product.findAll({
     where: {
@@ -55,6 +130,22 @@ const getProductByBrand = async (brand) => {
         [Op.iLike]: `%${brand}%`,
       },
     },
+  });
+};
+
+const getProductByAge = async (minimun_age) => {
+  return await Product.findAll({
+    where: {
+      minimun_age: {[Op.gte]: minimun_age},
+      },
+  });
+};
+
+const getProductByPrice = async (price) => {
+  return await Product.findAll({
+    where: {
+      price: {[Op.lte]: price},
+      },
   });
 };
 
@@ -85,4 +176,14 @@ module.exports = {
   getProductsByStatus,
   getProductsByCategory,
   getProductByCategoryAndStatus,
+  getProductByAge,
+  getProductByPrice,
+  getProductByCategoryAndBrand,
+  getProductByCategoryBrandAgeAndPrice,
+  getProductByCategoryBrandAndAge,
+  getProductByCategoryAndMinimunAge,
+  getProductByCategoryAndPrice,
+  getProductByBrandAndMinimunAge,
+  getProductByBrandAndPrice,
+  getProductByPriceAndMinimunAge,
 };

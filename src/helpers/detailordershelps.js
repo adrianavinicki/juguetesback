@@ -3,91 +3,108 @@ const { Op } = require("sequelize");
 
 const getDetailOrder = async () => {
   return await Detailorder.findAll({
-    include: [
-      { model: Product, required: id },
-      { model: User, required: id },
-    ],
+    include: [{ model: Product }, { model: User }],
   });
 };
-/*
-const getProductByNameAndStatus = async (name, status) => {
-  return await Product.findAll({
+
+const getDetailByStatus = async (status) => {
+  return await Detailorder.findAll({
     where: {
-      name: {
-        [Op.iLike]: `%${name}%`,
-      },
-      product_status: status,
+      detail_order_status: status,
     },
   });
 };
 
-const getProductByBrandAndStatus = async (brand, status) => {
-  return await Product.findAll({
+const getDetailByProductAndUser = async (idProduct, idUser) => {
+  return await Detailorder.findAll({
     where: {
-      brand: {
-        [Op.iLike]: `%${brand}%`,
-      },
-      product_status: status,
+      productId: idProduct,
+      userId: idUser,
     },
   });
 };
 
-const getProductByCategoryAndStatus = async (category, status) => {
-  return await Product.findAll({
+const getDetailByProductAndDate = async (idProduct, date) => {
+  return await Detailorder.findAll({
     where: {
-      category: {
-        [Op.iLike]: `%${category}%`,
-      },
-      product_status: status,
+      productId: idProduct,
+      order_detail_date: date,
     },
   });
 };
 
-const getProductByName = async (name) => {
+const getDetailByProductAndStatus = async (idProduct, status) => {
   return await Product.findAll({
     where: {
-      name: {
-        [Op.iLike]: `%${name}%`,
-      },
+      productId: idProduct,
+      detail_order_status: status,
     },
   });
 };
 
-const getProductByBrand = async (brand) => {
+const getDetailByProductAndPrice = async (idProduct, price) => {
   return await Product.findAll({
     where: {
-      brand: {
-        [Op.iLike]: `%${brand}%`,
-      },
+      productId: idProduct,
+      price: price,
     },
   });
 };
 
-const getProductsByStatus = async (status) => {
+const getDetailByProductAndQuantity = async (idProduct, quantity) => {
   return await Product.findAll({
     where: {
-      product_status: status,
+      productId: idProduct,
+      quantity: quantity,
     },
   });
 };
 
-const getProductsByCategory = async (category) => {
-  return await Product.findAll({
+const getDetailByUserAndDate = async (idUser, date) => {
+  return await Detailorder.findAll({
     where: {
-      category: {
-        [Op.iLike]: `%${category}%`, //trae la categoria de forma no case sensitive
-      },
+      userId: idUser,
+      order_detail_date: date,
     },
   });
-};*/
+};
+
+const getDetailByUserAndStatus = async (idUser, status) => {
+  return await Detailorder.findAll({
+    where: {
+      userId: idUser,
+      detail_order_status: status,
+    },
+  });
+};
+
+const getDetailByDateAndStatus = async (date, status) => {
+  return await Detailorder.findAll({
+    where: {
+      order_detail_date: date,
+      detail_order_status: status,
+    },
+  });
+};
+
+const getDetailByOrder = async (idOrder) => {
+  return await Detailorder.findAll({
+    where: {
+      orderId: idOrder,
+    },
+  });
+};
 
 module.exports = {
   getDetailOrder,
-  /*getProductByNameAndStatus,
-  getProductByName,
-  getProductByBrandAndStatus,
-  getProductByBrand,
-  getProductsByStatus,
-  getProductsByCategory,
-  getProductByCategoryAndStatus,*/
+  getDetailByStatus,
+  getDetailByProductAndUser,
+  getDetailByProductAndDate,
+  getDetailByProductAndStatus,
+  getDetailByProductAndPrice,
+  getDetailByProductAndQuantity,
+  getDetailByUserAndDate,
+  getDetailByUserAndStatus,
+  getDetailByDateAndStatus,
+  getDetailByOrder,
 };

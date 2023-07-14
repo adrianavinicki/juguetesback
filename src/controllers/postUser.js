@@ -50,7 +50,7 @@ const createUser = async (req, res, next) => {
       user_password,
     });
     console.log("User creado correctamente:", userCreated);
-    res.status(200).json({ message: "User created" });
+    res.status(200).json({ message: "User created", userID: userCreated.id });
   } catch (error) {
     next(error);
   }
