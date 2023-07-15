@@ -19,32 +19,6 @@ const mercadopago = require("mercadopago");
 mercadopago.configure({
   access_token: ACCESS_TOKEN,
 });
-//!--------------
-//!POST
-
-// Crea un objeto de preferencia
-// const createPayment = async (req, res, next) => {
-//   let preference = {
-//     items: [
-//       {
-//         title: "Mi producto",
-//         unit_price: 100,
-//         quantity: 1,
-//       },
-//     ],
-//   };
-//   console.log("este es preference:", preference);
-//   mercadopago.preferences
-//     .create(preference)
-//     .then(function (response) {
-//       //global.id = response.body.id;
-//       console.log("esta es response: ", response);
-//       res.json(response);
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//     });
-// };
 
 const createPayment = async (req, res, next) => {
   const { orderId } = req.body;
@@ -92,8 +66,22 @@ const createPayment = async (req, res, next) => {
     });
     console.log(" este es el newPayment :", newPayment);
     // Asociar el pago a la orden
-    //await order.addPayment(newPayment.id);
+    await order.update({ paymentId: newPayment.id });
+    console.log("esta es la order actualizada: ", order);
+    await newPayment.update({ orderId: order.id, userId: order.userId });
+    console.log("este es el pago updated 1: ", newPayment);
 
+    /*const paymentId = response.body.id;
+    const payment = await mercadopago.payment.findById(paymentId);
+    await newPayment.update({
+      orderId: order.id,
+      userId: order.userId,
+      date_approved: payment.body.date_approved,
+      authorization_code: payment.body.authorization_code,
+      mp_id_order: payment.body.order.id,
+      fee_mp: payment.body.fee_details[0].amount,
+    });
+    console.log(" payment updated :", newPayment);*/
     return res.status(200).json({ message: "Payment created", init_point });
   } catch (error) {
     console.error("Payment was not created", error);
@@ -101,95 +89,25 @@ const createPayment = async (req, res, next) => {
   }
 };
 
-module.exports = { createPayment };
-
-/*const postPayment = async (req, res) => {
-  let { createOrder } = req.body;
-  let check = onlyDateCheck(date); // ver si validamos el id usuaruio
-  if (!item || !quantity || !date || !price || check !== true) {
-    return res.status(412).send({ message: "Please complete all the information" });
-  } else {
-    try {
-      let bill = {
-        item,
-        quantity,
-        date,
-        price,
-        idUser,
-      };
-      let newbill = await Bills.create(bill);
-      //res.status(200).json(createdBill);
-      let preference = {
-        items: [
-          {
-            id: newbill.id,
-            title: newbill.item,
-            quantity: newbill.quantity,
-            unit_price: newbill.price,
-            description: "Hotel Iberia",
-            currency_id: "ARS",
-          },
-        ],
-        back_urls: {
-          success: "https://iberahotelsfront-production.up.railway.app",
-          failed: "https://iberahotelsfront-production.up.railway.app",
-        },
-        auto_return: "approved",
-        binary_mode: true,
-        notification_url:
-          "https://iberahotelsapi-production.up.railway.app/bills/payment/notification",
-        //"https://a3a3-37-178-222-102.eu.ngrok.io/bills/payment/notification",
-      };
-      mercadopago.preferences
-        .create(preference)
-        .then(function (response) {
-          res.status(201).send(response.body.init_point);
-        })
-        .catch(function (error) {
-          res.status(500).json({ error: error });
-        });
-    } catch (error) {
-      res.status(404).json("Your Purchase was not created");
-    }
-  }
-};
-
 async function paymentNotification(req, res) {
-  const { query } = req;
-  const topic = query.topic || query.type;
-  //var merchantOrder;
-  //var payment;
+  const { body } = req;
+  const topic = body.topic || body.type;
+
   switch (topic) {
     case "payment":
-      const paymentId = query.id || query["data.id"];
+      const paymentId = body.id || body["data.id"];
       const payment = await mercadopago.payment.findById(paymentId);
       const idS = payment.body.additional_info.items.map((e) => e.id);
-      Bills.update(
-        {
-          payment_status: payment.body.status,
-          date_approved: payment.body.date_approved,
-          id_payment: payment.body.id,
-          authorization_code: payment.body.authorization_code,
-          mp_id_order: payment.body.order.id,
-          fee_mp: payment.body.fee_details[0].amount,
-          active: true,
-        },
-        {
-          where: { id: idS },
-        }
-      )
-        .then((numRowsAffected) => {
-          //console.log(`Se actualizaron ${numRowsAffected} registros`);
-        })
-        .catch((err) => {
-          //console.error("Error al actualizar registros:", err);
-        });
+      await updatePaymentData(payment.body);
+      break;
+    default:
+      break;
   }
   res.send();
 }
 
-
-
+module.exports = { createPayment };
+/*
 //!GET purchase
 const getAllBills = async (req, res) => {
   try {
