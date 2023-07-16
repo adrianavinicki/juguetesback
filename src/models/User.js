@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
       },
       gender: {
         type: DataTypes.ENUM("F", "M", "X"),
-        allowNull: false,
+        allowNull: true,
       },
       email: {
         type: DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
       },
       delivery_address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       mobile: {
         type: DataTypes.STRING,
@@ -41,6 +41,7 @@ module.exports = (sequelize) => {
       role_id: {
         type: DataTypes.ENUM("Administrador", "Cliente"),
         allowNull: false,
+        defaultValue: "Cliente",
       },
       user_status: {
         type: DataTypes.BOOLEAN,
