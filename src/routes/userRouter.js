@@ -13,10 +13,6 @@ const {
   enableUser,
   changeRole,
   changePassword,
-  /*
-  passwordChange,
-  deleteUser,
-  passwordReset,*/
 } = require("../controllers/putUser.js");
 const { createUser } = require("../controllers/postUser.js");
 
@@ -31,12 +27,7 @@ users.put("/changeRole", changeRole);
 users.put("/enable", enableUser);
 users.get("/findAdmin/:id", isAdmin);
 users.put("/changePassword", changePassword);
-users.post("/userEmail", getUserByEmail);
-
-/*users.delete("/delete", deleteUser);
-users.post("/passwordReset", passwordReset);
-users.put("/passwordChange", passwordChange);*/
-
+users.post("/userEmail", getUserByEmail); //Esta es post? o deberia ser put?
 users.post("/create", createUser);
 
 module.exports = users;
