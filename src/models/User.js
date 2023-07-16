@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
       },
       gender: {
         type: DataTypes.ENUM("F", "M", "X"),
-        allowNull: true,
+        allowNull: false,
       },
       email: {
         type: DataTypes.STRING,
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
       },
       delivery_address: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       mobile: {
         type: DataTypes.STRING,
