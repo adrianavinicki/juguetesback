@@ -17,7 +17,7 @@ router.use("/products", getProducts);
 router.use("/users", userRouter);
 router.use("/detailorders", detailOrdersRouter);
 router.use("/orders", orderRouter);
-router.use("/favorites", FavoriteRouter);
+router.use("/favorites", FavoriteRouter); // LA BASE QUE SE CREA ES FAVORITOS
 router.use("/rating", ratingRouter);
 router.use("/payments", paymentRouter);
 /*router.get("/", (req, res, next) => {

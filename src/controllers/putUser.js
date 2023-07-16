@@ -9,7 +9,6 @@ const {
   getUsersProperty,
   getUserId,
 } = require("../helpers/uservalidation.js");
-//const firebase = require("../firebase-config.js");
 
 const disableUser = async (req, res) => {
   const { email } = req.body;
@@ -85,71 +84,9 @@ const changePassword = async (req, res) => {
   }
 };
 
-/*const changePassword = async (req, res, next) => {
-  const { email, password } = req.body;
-  if (!email || !password) return res.send("All data must be filled");
-  try {
-    const user = await User.findOne({
-      where: { email },
-    });
-    if (user) {
-      const uid = user.user_id;
-      const newPassword = await firebase.auth().updateUser(uid, {
-        password: password,
-      });
-      return res.send(newPassword);
-    }
-    return res.status(404).send("User not found");
-  } catch (error) {
-    next(error);
-  }
-};
-
-// GUARDA CON ESTA FUNC QUE ROMPE EL BACK
-/*const deleteUser = async (req, res, next) => {
-  const { email } = req.query;
-
-  try {
-    const user = await User.findOne({
-      where: { email },
-    });
-    if (user) {
-      const uid = user.user_id;
-      firebase
-        .auth()
-        .deleteUser(uid)
-        .then(async () => {
-          const deletedUser = await User.destroy({
-            where: { email },
-          });
-          return res.send(deletedUser);
-        });
-    } else {
-      return res.status(404).send("User not found");
-    }
-  } catch (error) {
-    res.send({ message: error.message });
-  }
-};*/
-
-/*const passwordReset = async (req, res, next) => {
-  const { email } = req.body;
-  if (!email) return res.send("Email must be sent");
-  try {
-    const linkReset = await firebase.auth().generatePasswordResetLink(email);
-    res.send(linkReset);
-  } catch (error) {
-    next(error);
-  }
-};*/
-
 module.exports = {
   disableUser,
   enableUser,
   changeRole,
   changePassword,
-  /*
-  passwordChange,
-  deleteUser,
-  passwordReset,*/
 };

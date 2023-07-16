@@ -2,7 +2,7 @@ const { Order } = require("../db");
 
 const modifyOrder = async (req, res) => {
   try {
-    const { /*totalPrice,*/ status } = req.body;
+    const { status } = req.body;
     const { id } = req.params;
 
     if (!id) return res.status(400).json({ error: "Id is needed" });
@@ -13,12 +13,6 @@ const modifyOrder = async (req, res) => {
 
     let modifications = {};
 
-    /*if(totalPrice) {
-            modifications = {
-                ...modifications,
-                totalprice: totalPrice
-            }
-        };*/
     if (status) {
       modifications = {
         ...modifications,
