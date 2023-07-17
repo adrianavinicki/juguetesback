@@ -11,7 +11,6 @@ const {
   BACK_URL_FAILED,
   BACK_URL_PENDING,
   PORT,
-  BACK_URL_NOTIFICATION,
 } = process.env;
 
 const mercadopago = require("mercadopago");
@@ -46,7 +45,9 @@ const createPayment = async (req, res, next) => {
       },
       auto_return: "approved",
       binary_mode: true,
-      //notification_url: BACK_URL_NOTIFICATION,
+      // notification_url:
+      //   "https://",
+      // //"https://",
     };
 
     //console.log("esta es la preferencia: ", preference);
