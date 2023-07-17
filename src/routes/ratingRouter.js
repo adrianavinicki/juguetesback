@@ -216,5 +216,21 @@ router.delete("/delete/:id", async (req, res, next) => {
   }
 }); 
 
+router.get("/sum/:productId", async (req, res) => {
+  try {
+    const { productId } = req.params;
+
+    // Consultar la sumatoria de los ratings por productId
+    const result = await Rating.sum("rating", {
+      where: { productId },
+    });
+
+    res.json({ sum: result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
+
 module.exports = router;
 

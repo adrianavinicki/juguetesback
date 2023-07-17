@@ -41,6 +41,7 @@ module.exports = (sequelize) => {
       role_id: {
         type: DataTypes.ENUM("Administrador", "Cliente"),
         allowNull: false,
+        defaultValue: "Cliente",
       },
       user_status: {
         type: DataTypes.BOOLEAN,
@@ -53,6 +54,10 @@ module.exports = (sequelize) => {
       user_password: {
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      favProductId: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        defaultValue: [],
       },
     },
     {
