@@ -1,4 +1,4 @@
-const { Payment, Order } = require("../db");
+const { Payment, Order, User, Detailorder, Product } = require("../db");
 const { onlyDateCheck } = require("../helpers/validation");
 
 require("dotenv").config();
@@ -70,6 +70,33 @@ const createPayment = async (req, res, next) => {
     // console.log("esta es la order actualizada: ", order);
     await newPayment.update({ orderId: order.id, userId: order.userId });
     //console.log("este es el pago updated 1: ", newPayment);
+    //obtento usuario asociado al pago
+    const user = await User.findByPk(newPayment.userId);
+    //obtengo los productos de las details orders compradas
+    const detailorders = await Detailorder.findAll({
+      where: {
+        orderId: order.id,
+      },
+      include: [Product],
+    });
+    //actualizo el campo purchase_history en user
+    const currentPurchaseHistory = user.purchase_history;
+
+    const updatedPurchaseHistory = detailorders.map((detailorder) => ({
+      productId: detailorder.productId,
+      price: detailorder.price,
+      quantity: detailorder.quantity,
+    }));
+
+    const mergedPurchaseHistory = [
+      ...currentPurchaseHistory,
+      ...updatedPurchaseHistory,
+    ];
+    await user.update({
+      purchase_history: mergedPurchaseHistory,
+    });
+
+    console.log("purchase_history:", user.purchase_history);
 
     /*const paymentId = response.body.id;
     const payment = await mercadopago.payment.findById(paymentId);
