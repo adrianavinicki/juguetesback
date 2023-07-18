@@ -11,7 +11,6 @@ const detailorders = Router();
 
 detailorders.get("/", getDetailOrderByProperties);
 detailorders.get("/:id", getById);
-
 detailorders.post("/create", createDetailOrder);
 
 module.exports = detailorders;
