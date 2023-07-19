@@ -21,7 +21,7 @@ mercadopago.configure({
 });
 
 const createPayment = async (req, res, next) => {
-  const { orderId } = req.body;
+  const { orderId, cart } = req.body;
   //console.log("este es el body :", req.body);
   try {
     // Verificar si la orden existe
