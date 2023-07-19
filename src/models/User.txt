@@ -41,6 +41,7 @@ module.exports = (sequelize) => {
       role_id: {
         type: DataTypes.ENUM("Administrador", "Cliente"),
         allowNull: false,
+        defaultValue: "Cliente",
       },
       user_status: {
         type: DataTypes.BOOLEAN,
@@ -54,10 +55,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      /*favProductId: {
+      favProductId: {
         type: DataTypes.ARRAY(DataTypes.INTEGER),
         defaultValue: [],
-      },*/
+      },
     },
     {
       timestamps: false,
