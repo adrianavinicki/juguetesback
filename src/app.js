@@ -20,6 +20,9 @@ server.use(morgan("dev"));
 const sendWelcomeRoute = require('../src/routes/SendWelcome.js');
 server.use('/', sendWelcomeRoute); 
 
+const sendCompraRoute = require('../src/routes/SendCompra.js');
+server.use('/', sendCompraRoute); 
+
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
