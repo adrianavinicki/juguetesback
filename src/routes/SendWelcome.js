@@ -97,7 +97,7 @@ const sendWelcome = (toEmail) => {
   const mailOptions = {
     from: 'wondertoyshenry@gmail.com', // TODO: email sender
     to: toEmail, // Email receiver will be passed as an argument
-    subject: 'Bienvenido Wonder Boy!!',
+    subject: 'Bienvenido!!',
     html: `<!DOCTYPE html>
       <html lang="en">
       <head>
