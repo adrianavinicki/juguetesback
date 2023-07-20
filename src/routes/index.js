@@ -9,6 +9,7 @@ const orderRouter = require("./OrderRouter");
 const FavoriteRouter = require("./favoriteRouter");
 const ratingRouter = require("./ratingRouter");
 const paymentRouter = require("./paymentRouter");
+const sendWelcome= require("./SendWelcome");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -20,6 +21,7 @@ router.use("/orders", orderRouter);
 router.use("/favorites", FavoriteRouter); // LA BASE QUE SE CREA ES FAVORITOS
 router.use("/rating", ratingRouter);
 router.use("/payments", paymentRouter);
+router.use("/sendWelcome", sendWelcome);
 /*router.get("/", (req, res, next) => {
   return res.status(200).json(getProducts);
 });*/
