@@ -54,10 +54,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      /*favProductId: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER),
-        defaultValue: [],
-      },*/
+      auth0_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      } 
     },
     {
       timestamps: false,
