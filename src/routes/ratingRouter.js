@@ -121,17 +121,17 @@ router.get("/product/:productId", async (req, res, next) => {
         },
       ],
     });
-    const result = rating.map((rating) => {
-      return {
-        id: rating.id,
-        productId: rating.productId,
-        rate: rating.rate,
-        review: rating.review,
-        userId: rating.userId,
-      };
-    });
-    if (result) {
-      res.json(result);
+    // const result = rating.map((rating) => {
+    //   return {
+    //     id: rating.id,
+    //     productId: rating.productId,
+    //     rate: rating.rate,
+    //     review: rating.review,
+    //     userId: rating.userId,
+    //   };
+    // });
+    if (rating) {
+      res.json(rating);
     } else {
       res.send("No matches were found");
     }
