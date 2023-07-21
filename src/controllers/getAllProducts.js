@@ -83,11 +83,11 @@ const getProducts2 = async (req, res) => {
 
     let filters = {};
 
-    if (category) filters.category = category;
+    if (category&&category!=='All') filters.category = category;
     if (price) filters.price = { [Op.lte]: price };
-    if (brand) filters.brand = brand;
+    if (brand&&brand!=='All') filters.brand = brand;
     if (name) filters.name = { [Op.iLike]: `%${name}%` };
-    if (minimun_age) filters.minimun_age = { [Op.gte]: minimun_age };
+    if (minimun_age&&minimun_age!=='All') filters.minimun_age = { [Op.gte]: minimun_age };
     status
       ? (filters.product_status = status)
       : (filters.product_status = true);
