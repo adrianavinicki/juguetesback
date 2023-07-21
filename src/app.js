@@ -17,11 +17,11 @@ server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
 server.use(morgan("dev"));
 
-const sendWelcomeRoute = require('../src/routes/SendWelcome.js');
-server.use('/', sendWelcomeRoute); 
+// const sendWelcomeRoute = require('../src/routes/SendWelcome.js');
+// server.use('/', sendWelcomeRoute); 
 
-const sendCompraRoute = require('../src/routes/SendCompra.js');
-server.use('/', sendCompraRoute); 
+// const sendCompraRoute = require('../src/routes/SendCompra.js');
+// server.use('/', sendCompraRoute); 
 
 server.use((req, res, next) => {
   res.header(
