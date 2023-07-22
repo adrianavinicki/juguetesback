@@ -31,10 +31,21 @@ const putProduct = async (req, res, next) => {
   const { id } = req.params;
   console.log("este es el id: ", req.params);
   try {
+
+    let imagenUpdate= null;
+    if(req.file) {
+      const showImage = await cloudinary.uploader.upload(req.file.path, {
+        public_id: name, // Asignar el nombre del producto como public_id
+      });
+      imagenUpdate = showImage.secure_url;
+    };
+
     const product = await Product.findByPk(id);
     console.log("este es el producto en db: ", product);
     if (!product) res.status(404).json({ message: "Product does not exist" });
-    const productModified = await product.update({
+
+    if(!imagenUpdate){
+      const productModified = await product.update({
       name,
       brand,
       category,
@@ -45,8 +56,26 @@ const putProduct = async (req, res, next) => {
       image,
       product_status,
     });
-    console.log("este modificado: ", productModified);
+
     if (productModified) res.status(201).json({ message: "Product modified" });
+    } else {
+      const productModified = await product.update({
+        name,
+        brand,
+        category,
+        minimun_age,
+        description,
+        quantity,
+        price,
+        image: imagenUpdate,
+        product_status,
+      });
+
+      console.log("este modificado: ", productModified);
+    if (productModified) res.status(201).json({ message: "Product modified" });
+    }
+    
+    
   } catch (error) {
     res.status(404).json(error.message);
   }
