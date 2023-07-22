@@ -109,6 +109,8 @@ const createPayment = async (req, res, next) => {
       fee_mp: payment.body.fee_details[0].amount,
     });
     console.log(" payment updated :", newPayment);*/
+    
+    //REDUCIR QUANTITY DEL PRODUCT EN EL FRONT
     return res.status(200).json({ message: "Payment created", init_point });
   } catch (error) {
     console.error("Payment was not created", error);
