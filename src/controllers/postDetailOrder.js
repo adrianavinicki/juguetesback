@@ -16,10 +16,13 @@ const createDetailOrder = async (req, res, next) => {
       const product = await Product.findByPk(productId);
 
       if (!user || !product) {
-        console.log("User or Product was not found.");
         return res
           .status(404)
           .json({ message: "User or Product was not found" });
+      }
+
+      if (product.quantity < quantity) {
+        return res.status(400).json({ message: "Insuficiente Stock" });
       }
 
       const createdDetailOrder = await Detailorder.create({

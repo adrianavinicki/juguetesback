@@ -2,6 +2,7 @@ const { Router } = require("express");
 
 const cors = require("cors");
 const router = Router();
+
 const getProducts = require("./productsRouter");
 const userRouter = require("./userRouter");
 const detailOrdersRouter = require("./detailOrderRouter");
