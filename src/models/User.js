@@ -50,14 +50,6 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.JSON),
         defaultValue: [],
       },
-      user_password: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      auth0_id: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      } 
     },
     {
       timestamps: false,
