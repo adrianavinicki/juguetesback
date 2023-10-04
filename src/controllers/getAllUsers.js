@@ -55,31 +55,31 @@ const isAdmin = async (req, res) => {
   }
 };
 
-const getUserByEmail = async (req, res) => {
-  const { email } = req.body;
+// const getUserByEmail = async (req, res) => {
+//   const { email } = req.body;
 
-  if (!email) {
-    return res
-      .status(412)
-      .json({ message: "email data was not received to continue operation" });
-  }
+//   if (!email) {
+//     return res
+//       .status(412)
+//       .json({ message: "email data was not received to continue operation" });
+//   }
 
-  try {
-    const user = await User.findOne({ where: { email: email } });
+//   try {
+//     const user = await User.findOne({ where: { email: email } });
 
-    if (!user) {
-      return res.status(404).json({ message: "user was not found" });
-    }
+//     if (!user) {
+//       return res.status(404).json({ message: "user was not found" });
+//     }
 
-    return res.status(200).json({ idUser: user.id, user: user });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: error.message });
-  }
-};
+//     return res.status(200).json({ idUser: user.id, user: user });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
 module.exports = {
   getUserById,
   getAllUsers,
   isAdmin,
-  getUserByEmail,
+  // getUserByEmail,
 };

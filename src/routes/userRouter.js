@@ -18,7 +18,7 @@ const {
   deleteUser,
   passwordReset,*/
 } = require("../controllers/putUser.js");
-const { createUser } = require("../controllers/postUser.js");
+const { createUser, getUserByMail } = require("../controllers/postUser.js");
 const { login } = require("../controllers/login.js");
 
 const users = Router();
@@ -32,7 +32,7 @@ users.put("/changeRole", changeRole);
 users.put("/enable", enableUser);
 users.get("/findAdmin/:id", isAdmin);
 users.put("/changePassword", changePassword);
-users.post("/userEmail", getUserByEmail);
+users.post("/mail", getUserByMail);
 users.post("/login", login);
 
 /*users.delete("/delete", deleteUser);
