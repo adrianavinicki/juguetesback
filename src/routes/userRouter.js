@@ -13,6 +13,7 @@ const {
   enableUser,
   changeRole,
   changePassword,
+  putUser,
   /*
   passwordChange,
   deleteUser,
@@ -27,6 +28,7 @@ const users = Router();
 
 users.get("/", getAllUsers);
 users.get("/:id", getUserById);
+users.put("/update", putUser);
 users.put("/disable", disableUser);
 users.put("/changeRole", changeRole);
 users.put("/enable", enableUser);
