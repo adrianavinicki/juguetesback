@@ -10,6 +10,27 @@ const {
   getUserId,
 } = require("../helpers/uservalidation.js");
 
+const putUser = async (req, res, next) => {
+  const { first_name, last_name, email, delivery_address } = req.body;
+  try {
+    const user = await User.findOne({
+      where: {
+        email: email,
+      },
+    });
+    console.log(user)
+    if (!user) res.status(404).json({ message: "User does not exist" });
+    const userModified = await user.update({
+      first_name,
+      last_name,
+      delivery_address,
+    });
+    if (userModified) res.status(201).json({ message: "User modified" });
+  } catch (error) {
+    res.status(404).json(error.message);
+  }
+};
+
 const disableUser = async (req, res) => {
   const { email } = req.body;
 
@@ -89,4 +110,5 @@ module.exports = {
   enableUser,
   changeRole,
   changePassword,
+  putUser,
 };
